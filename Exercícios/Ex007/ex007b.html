@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0px;
+        }
+
+        #container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #egg {
+            background-color: white;
+            width: 100px;
+            height: 180px;
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        #egg:hover {
+            transition-duration: 0.5s;
+            background-color: changeBackgroundColor();
+            transform: rotate(360deg) translateY(100px) translateY(100px);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="egg"></div>
+    </div>
+
+    <script>
+
+function changeBackgroundColor() {
+              var colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+              var randomColor = colors[Math.floor(Math.random() * colors.length)];
+              document.body.style.backgroundColor = randomColor;
+            }
+            setInterval(changeBackgroundColor, 1000);
+          
+    </script>
+</body>
+</html>
