@@ -213,7 +213,11 @@
            for (var i = 0; i < numeros.length; i++) {
                 vezesnum += 1
                 var conta = num * vezesnum
-                resultado[i].innerHTML = conta
+                if (Number.isInteger(conta)) {
+                    resultado[i].innerHTML = conta
+                } else {
+                    resultado[i].innerHTML = conta.toFixed(1)
+                }
            }
         }
    </script>
