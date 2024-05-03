@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mediadas</title>
+</head>
+<body>
+    <h1>Diferentes distâncias</h1>
+    <label for="inum">Um distância em metros: </label>
+    <input type="number" name="num" id="inum">
+    <input type="button" value="Enviar" onclick="vai()">
+    <div id="res"></div>
+    <script>
+
+        function vai() {
+            var resultado = document.getElementById('res')
+            var numstring = document.getElementById('inum')
+            var num = Number(numstring.value)
+
+            var km = num / 1000
+            var hm = num / 100
+            var dam = num / 10
+            var dm = num * 10
+            var cm = num * 100
+            var mm = num * 1000
+
+            resultado.innerHTML = `<p>A medida de ${num.toFixed(1)}m corresponde a:</p>`
+            resultado.innerHTML += `<p>${km}km</p>`
+            resultado.innerHTML += `<p>${hm}hm</p>`
+            resultado.innerHTML += `<p>${dam}dam</p>`
+            resultado.innerHTML += `<p>${num}m</p>`
+            resultado.innerHTML += `<p>${dm}dm</p>`
+            resultado.innerHTML += `<p>${cm}cm</p>`
+            resultado.innerHTML += `<p>${mm}mm</p>`
+        }
+    </script>
+</body>
+</html>

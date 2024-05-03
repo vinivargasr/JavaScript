@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analise</title>
+</head>
+<body>
+    <h1>Dobro/Triplo/Raiz</h1>
+    <label for="num">Digite um número: </label>
+    <input type="number" name="num" id="inum">
+    <input type="button" value="Verificar" onclick="calculo()">
+    <div id="res"></div>
+    <script>
+        function calculo() {
+            var numstring = document.getElementById('inum')
+            var resultado = document.getElementById('res')
+            var numero = Number(numstring.value)
+            
+            var dobro = numero * 2
+            var triplo = numero * 3
+            var raiz = Math.sqrt(numero)
+            
+
+            resultado.innerHTML = `<p>O dobro de ${numero} vale ${dobro}</p>`
+
+            resultado.innerHTML += `<p>O triplo de ${numero} vale ${triplo}</p>`
+
+            resultado.innerHTML += `<p>A raiz quadrada de ${numero} é igual a ${raiz.toFixed(2)}`
+            
+        }
+    </script>
+</body>
+</html>

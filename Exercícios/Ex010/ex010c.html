@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Antecessor/Sucessor</h1>
+    <label for="inum">Digite um número: </label>
+    <input type="number" name="num" id="inum">
+    <input type="button" value="Analisar" onclick="analise()">
+    <div id="res"></div>
+    <script>
+
+        function analise () {
+        var numero = document.getElementById('inum')
+        var resultado = document.getElementById('res')
+        var transform = Number(numero.value)
+
+        var antecessor = transform - 1
+        var sucessor = transform + 1
+
+        resultado.innerHTML = `Analisando o valor ${transform}, seu antecessor é ${antecessor} e o sucessor é ${sucessor}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro</title>
+</head>
+<body>
+    <h1>Verificar se é estrangeiro</h1>
+    <label for="iest">Qual o seu país? </label>
+    <input type="text" name="est" id="iest">
+    <input type="button" value="Verificar" onclick="calcular()">
+    <div id="res"></div>
+    <label for="inum">Quantos anos vc tem?</label>
+    <input type="number" name="num" id="inum">
+    <input type="button" value="Verificar" onclick="calcidade()">
+    <div id="idaderes"></div>
+    <script>
+        function calcular () {
+        var cal = window.document.getElementById('iest')
+        var res = window.document.getElementById('res')
+        var pais = (cal.value)
+
+        if (pais == 'Brasil') {
+            res.innerHTML = '<p>Você é brasileiro</p>'
+        } else {
+            res.innerHTML = '<p>Você é estrangeiro</p>'
+        }
+        res.innerHTML += `<p>O seu pais é o(a) ${pais}</p>`
+        }
+
+        function calcidade() {
+            var idade = document.getElementById('inum')
+            var idaderes = document.getElementById('idaderes')
+            var ano = (idade.value)
+            if (ano >= 18) {
+                idaderes.innerHTML = 'Você ja pode tirar a CNH'
+            } else {
+                idaderes.innerHTML = 'Você ainda não pode tirar a CNH'
+            }
+        }
+
+    </script>
+</body>
+</html>
