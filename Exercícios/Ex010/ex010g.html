@@ -4,8 +4,180 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabuada</title>
+    <style>
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0px;
+            color: white;
+        }
+
+        main {
+            margin-top: 50px;
+            background-color: rgba(68, 4, 105, 0.363);
+            padding: 10px 20px 20px 20px;
+            border-radius: 20px;
+        }
+
+        html {
+            background-image: url(fundoSky.jpg);
+            background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: top;
+            justify-content: center;
+        }
+
+        table {
+            width: 414px;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        td {
+            text-align: center;
+            width: 75px;
+            border: 1px solid white;
+        }
+        h1 {
+            width: 414px;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        #botao {
+            border: none;
+            background-color: blueviolet;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        #botao:hover {
+            background-color: rgb(64, 16, 109);
+            color: lightcoral;
+        }
+
+        #inum {
+            background-color: rgba(128, 0, 128, 0.39);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+            padding-left: 10px;
+        }
+
+        #inum::placeholder {
+            color: rgba(211, 211, 211, 0.589);
+        }
+
+    </style>
 </head>
 <body>
+    <main>
+        <h1>Tabuada</h1>
+           <table>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">1</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">2</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">3</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">4</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">5</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">6</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">7</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">8</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">9</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+        <tr>
+            <td class="num"></td>
+            <td>x</td>
+            <td class="vezes">10</td>
+            <td>=</td>
+            <td class="resultado"></td>
+        </tr>
+           </table>
         
+           <label for="inum">Numero da sua tabuada: </label>
+           <input type="number" name="num" id="inum" placeholder="Digite aqui :P">
+           <input id="botao" type="button" value="Enviar" onclick="mostrar()">
+    </main>
+
+   <script>
+
+        function mostrar(){
+            var numeros = document.getElementsByClassName('num')
+            var numero = document.getElementById('inum')
+            var num = Number(numero.value)
+
+           for (var i = 0; i < numeros.length; i++) {
+                numeros[i].innerHTML = num
+           }
+
+           var resultado = document.getElementsByClassName('resultado')
+
+           vezesnum = 0
+
+           for (var i = 0; i < numeros.length; i++) {
+                vezesnum += 1
+                var conta = num * vezesnum
+                resultado[i].innerHTML = conta
+           }
+        }
+   </script>
 </body>
 </html>
