@@ -8,12 +8,18 @@ var passonumber = Number(passos.value)
 var ininumber = Number(ini.value)
 var fimnumber = Number(fim.value)
 
-if (fimnumber == 0) {
-    resultado.innerHTML = '*** Adicione um fim ***'
-} else if (fimnumber < ininumber) {
-    resultado.innerHTML = '*** Erro inicio maior que fim ***'
+
+if (fimnumber == ininumber) {
+    resultado.innerHTML = '*** Números iguais ***'
 } else if (passonumber == 0) {
     resultado.innerHTML = '*** Adicione a quantidade de passos ***'
+} else if (fimnumber < ininumber) {
+    resultado.innerHTML = ''
+    while (fimnumber <= ininumber) {
+        resultado.innerHTML += `${ininumber} 👉 `
+        ininumber = ininumber - passonumber
+    }
+    resultado.innerHTML += '🏁'
 } else {
     resultado.innerHTML = ''
     while (ininumber <= fimnumber) {
@@ -22,5 +28,5 @@ if (fimnumber == 0) {
     }
 
     resultado.innerHTML += '🏁'
-    }
+   }
 }
