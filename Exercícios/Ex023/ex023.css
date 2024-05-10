@@ -3,6 +3,10 @@
     src: url(fontRetro.ttf);
 }
 
+html {
+    position: fixed;
+}
+
 body {
     margin: 0px;
     display: flex;
