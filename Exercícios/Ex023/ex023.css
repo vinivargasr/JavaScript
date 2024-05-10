@@ -1,0 +1,129 @@
+@font-face {
+    font-family: 'pixel';
+    src: url(fontRetro.ttf);
+}
+
+body {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'pixel';
+    color: white;
+    font-size: 1.5em;
+}
+
+main {
+    background-color: darkslategrey;
+    height: 470px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.678);
+}
+
+#boxResultado {
+    background-color: yellowgreen;
+    height: 50px;
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1em;
+    border: inset 5px rgba(0, 0, 0, 0.507);
+}
+
+#boxResultado > p {
+    color: white;
+    padding-right: 10px;
+}
+
+#boxNumeros {
+    background-color: gray;
+    height: 340px;
+    width: 280px;
+    border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#containerNumeros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#numeros {
+    background-color: gainsboro;
+    border-radius: 5px;
+    height: 250px;
+    width: 160px;
+    margin: 20px 20px 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#num {
+    font-family: 'pixel';
+    font-size: 1em;
+    border-radius: 5px;
+    color: white;
+    background-color: green;
+    padding: 5px;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 1px black;
+    width: 35px;
+    border-color: greenyellow;
+}
+
+#num:hover {
+    background-color: rgb(1, 179, 1);
+}
+
+#operacoes {
+    background-color: gainsboro;
+    border-radius: 5px;
+    height: 250px;
+    width: 60px;
+    margin: 20px 20px 0px 0px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+#opr {
+    font-family: 'pixel';
+    font-size: 1em;
+    background-color: green;
+    width: 35px;
+    height: 43px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+    border-color: greenyellow;
+}
+
+#opr:hover {
+    background-color: rgb(1, 179, 1);
+}
+
+#igual {
+    font-size: 1em;
+    font-family: 'pixel';
+    background-color: green;
+    color: white;
+    margin-left: 20px;
+    width: 240px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: greenyellow;
+}
+
+#igual:hover {
+    background-color: rgb(1, 179, 1);
+}

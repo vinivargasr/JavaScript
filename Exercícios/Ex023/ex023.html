@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="ex023.css">
+</head>
+<body>
+    <main>
+        <section id="boxResultado"></section>
+
+        <div id="containerNumeros">
+            <section id="boxNumeros">
+                <div id="numeros">
+                    <div>
+                        <div><input type="button" value="7" id="num" onclick="insert('7')"></div>
+                        <div><input type="button" value="4" id="num" onclick="insert('4')"></div>
+                        <div><input type="button" value="1" id="num" onclick="insert('1')"></div>
+                        <div><input type="button" value="0" id="num" onclick="insert('0')"></div>
+                    </div>
+                    <div>
+                        <div><input type="button" value="8" id="num" onclick="insert('8')"></div>
+                        <div><input type="button" value="5" id="num" onclick="insert('5')"></div>
+                        <div><input type="button" value="2" id="num" onclick="insert('2')"></div>
+                        <div><input type="button" value="," id="num" onclick="insert(',')"></div>
+                    </div>
+                    <div>
+                        <div><input type="button" value="9" id="num" onclick="insert('9')"></div>
+                        <div><input type="button" value="6" id="num" onclick="insert('6')"></div>
+                        <div><input type="button" value="3" id="num" onclick="insert('3')"></div>
+                        <div><input type="button" value="<" id="num" onclick="limpar()"></div>
+                    </div>
+                </div>
+                <div id="operacoes">
+                    <div><input type="button" class="operadores" value="+" id="opr" onclick="insert('+')"></div>
+                    <div><input type="button" class="operadores" value="-" id="opr" onclick="insert('-')"></div>
+                    <div><input type="button" class="operadores" value="÷" id="opr" onclick="insert('/')"></div>
+                    <div><input type="button" class="operadores" value="x"  id="opr" onclick="insert('*')"></div>
+                </div>
+                <div id="containerIgual"><input type="button" value="=" id="igual" onclick="calcular()"></div>
+
+            </section>
+        </div>
+    </main>
+    <script src="ex023.js"></script>
+</body>
+</html>
