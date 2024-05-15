@@ -8,14 +8,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav>
+    <nav id="menubarra">
 
     <div id="gruposeb">GRUPO <span id="seb">SEB</span></div>
 
     <div class="bloco">
         <div id="foto"><img src="imagemCapa.jpeg" alt="Foto" id="fotodentro">
         </div>
-        <label for="foto" class="textopainel">Conta</label>
+        <label for="foto" class="textopainel" >Conta</label>
     </div>
 
     <a href="ex025.html">
@@ -26,26 +26,38 @@
         <div class="bloco" id="centrocurso"><img src="caderno.png" alt="Caderno" class="fotos"><label for="fotocaderno" class="textopainel">&nbsp;Cursos&nbsp;</label></div>
     </a>
 
-    <div class="bloco"><img src="grupos.png" alt="Grupos" class="fotos"><label for="fotos" class="textopainel">Grupos</label></div>
+    <a href="ex025grupos.html">
+        <div class="bloco"><img src="grupos.png" alt="Grupos" class="fotos"><label for="fotos" class="textopainel">Grupos</label></div>
+    </a>
 
-    <div class="bloco"><img src="calendario.png" alt="Calendário" class="fotos" id="fotocale"><label for="fotocale" class="textopainel">Calendário</label></div>
+    <a href="ex025cale.html">
+        <div class="bloco"><img src="calendario.png" alt="Calendário" class="fotos" id="fotocale"><label for="fotocale" class="textopainel">Calendário</label></div>
+    </a>
 
-    <div class="bloco"><img src="carta.png" alt="Carta" class="fotos"><label for="Carta" class="textopainel">Caixa de entrada</label></div>
+    <a href="ex025caixa.html">
+        <div class="bloco"><img src="carta.png" alt="Carta" class="fotos"><label for="Carta" class="textopainel">Caixa de entrada</label></div>
+    </a>
 
-    <div class="bloco"><img src="relogio.png" alt="Relógio" class="fotos" id="fotorelo"><label for="Relógio" class="textopainel">Histórico</label></div>
+    <a href="ex025histo.html">
+        <div class="bloco"><img src="relogio.png" alt="Relógio" class="fotos" id="fotorelo"><label for="Relógio" class="textopainel">Histórico</label></div>
+    </a>
 
-    <div class="bloco"><img src="engrenagem.png" alt="Engrenagem" class="fotos"><label for="Engrenagem" class="textopainel">Configu<br>rações</label></div>
+    <a href="ex025conf.html">
+        <div class="bloco"><img src="engrenagem.png" alt="Engrenagem" class="fotos"><label for="Engrenagem" class="textopainel">Configu<br>rações</label></div>
+    </a>
 
-    <div class="bloco" id="seta"><img src="setaEsquerda.png" alt="SetaEsquerda" class="fotos" id="setaesquerda"><label for="SetaEsquerda"></label></div>
+    <div class="bloco" id="seta" onclick="diminuirbarra()"><img src="setaEsquerda.png" alt="SetaEsquerda" class="fotos" id="setaesquerda"><label for="SetaEsquerda"></label></div>
     </nav>
     <main>
         <div id="paineldomain">
             <h1>Painel de controle</h1>
-            <h2>︙</h2>
+            <div id="caixados3p">
+                <h2>︙</h2>
+            </div>
         </div>
         <div id="linha"></div>
         <div class="blocomateria">
-            <div class="corPreto"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corPreto"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1">Introdução ao EaD</p>
@@ -58,7 +70,7 @@
         </div>
 
         <div class="blocomateria">
-            <div class="corPreto"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corPreto"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1">Espaço do Aluno</p>
@@ -69,7 +81,7 @@
         </div>
 
         <div class="blocomateria">
-            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corAmarelo"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1" id="textoAmarelo">Informática Básica</p>
@@ -82,7 +94,7 @@
         </div>
 
         <div class="blocomateria">
-            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corAmarelo"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1" id="textoAmarelo">Mapeamento e Modelagem</p>
@@ -95,7 +107,7 @@
         </div>
 
         <div class="blocomateria">
-            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corAmarelo"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1" id="textoAmarelo">Matemática Aplicada</p>
@@ -108,7 +120,7 @@
         </div>
 
         <div class="blocomateria">
-            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="corAmarelo"><span class="tresp">︙</span><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
             <div class="blocobranco">
                 <div class="textobloco">
                     <p class="textobloco1" id="textoAmarelo">Vida e Carreira</p>
@@ -121,5 +133,95 @@
         </div>
         <div id="fimdomain"></div>
     </main>
+    <section>
+        <p id="titulolista">Lista de Tarefas</p>
+        <div id="linha"></div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">Atenção: Início do ESTUDO DE CASO <br>(13/05 A 07/06)⚠️</a></p>
+                <p class="subtitulotarefas">Vida e Carreira</p>
+                <p class="datatarefas">10 Mai em 7:00</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">Estudo de Caso</a></p>
+                <p class="subtitulotarefas">Informática Básica</p>
+                <p class="datatarefas">13 Mai em 14:48</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">Estudo de Caso</a></p>
+                <p class="subtitulotarefas">Matemática Aplicada à Computação</p>
+                <p class="datatarefas">13 Mai em 14:49</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">LEMBRETE - Estudo de caso</a></p>
+                <p class="subtitulotarefas">Mapeamento e Modelagem de Processos</p>
+                <p class="datatarefas">13 Mai em 16:40</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">Informática Básica - Webconferência 15/05/2024 - 18h00</a></p>
+                <p class="subtitulotarefas">Informática Básica</p>
+                <p class="datatarefas">13 Mai em 18:19</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+        <div class="tarefas">
+            <div class="blocoimgtarefas">
+                <img src="megafone.png" alt="Calendário" class="imgtarefas">
+            </div>
+            <div class="blocotextotarefas">
+                <p class="titulotarefas"><a href="#">Matemática Aplicada à Computação - Webconferência 15/05/2024 - 18h16</a></p>
+                <p class="subtitulotarefas">Matemática Aplicada à Computação</p>
+                <p class="datatarefas">13 Mai em 18:20</p>
+            </div>
+            <div class="blocofechartarefas">
+                <button class="botaofechar">✖</button>
+            </div>
+        </div>
+
+    </section>
+    <script src="ex025.js"></script>
 </body>
 </html>

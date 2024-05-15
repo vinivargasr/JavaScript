@@ -21,6 +21,8 @@ nav {
     align-items: center;
     flex-direction: row;
     color: white;
+    user-select: none;
+    justify-content: center;
 }
 
 #gruposeb {
@@ -30,6 +32,7 @@ nav {
     line-height: 17px;
     font-size: 14px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 #seb {
@@ -84,10 +87,7 @@ nav label {
     width: 28px;
 }
 
-#fotocale {
-    height: 35px;
-    width: 32px;
-}
+
 
 #fotorelo {
     height: 25px;
@@ -111,11 +111,11 @@ nav a {
 }
 
 main {
-    display: inline-flex;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    padding: 0px 335px 0px 132px;
+    padding: 0px 0px 0px 132px;
+    margin-right: 335px;
 }
 
 main h1 {
@@ -124,6 +124,23 @@ main h1 {
     line-height: 30px;
     margin-top: 30px;
     font-weight: 500;
+}
+
+#caixados3p {
+    color: #2D3B45;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#caixados3p:hover {
+    background-color: #EAEBEC;
 }
 
 #linha {
@@ -147,7 +164,7 @@ main h1 {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 1px 5px rgba(104, 102, 102, 0.479);
+    box-shadow: 0px 2px 7px rgba(104, 102, 102, 0.479);
     user-select: none;
 }
 
@@ -220,12 +237,14 @@ main h1 {
     display: flex;
     background-color: #ffee02;
     border-radius: 5px 5px 0px 0px;
+    justify-content: flex-end;
 }
 
 .corPreto {
     display: flex;
     background-color: #10111E;
     border-radius: 5px 5px 0px 0px;
+    justify-content: flex-end;
 }
 
 #textoAmarelo {
@@ -235,4 +254,99 @@ main h1 {
 #fimdomain {
     height: 200px;
     width: 100vw;
+}
+
+section {
+    width: 245px;
+    height: 900px;
+    position: static;
+    margin-left: 1080px;
+    margin-top: -870px;
+    align-items: end;
+    flex-wrap: wrap;
+}
+
+#titulolista {
+    color: #2D3B45;
+    font-weight: 500;
+    text-indent: 3px;
+    margin-bottom: 10px;
+}
+
+.tarefas {
+    height: fit-content;
+    margin: 5px 0px 0px 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.imgtarefas {
+    margin-top: 6px;
+    width: 19px;
+    height: 20px;
+}
+
+.blocoimgtarefas {
+    margin-left: 10px;
+    margin-top: 2px;
+    width: 29px;
+}
+
+.blocotextotarefas {
+    width: 158px;
+}
+
+.titulotarefas {
+    margin-top: 5px;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.titulotarefas:hover a {
+    text-decoration: none;
+    color: #005B93;
+}
+
+.blocotextotarefas a {
+    color: #377EAA;
+    text-decoration-color: #377EAA;
+}
+
+.blocofechartarefas {
+    width: 20px;
+    text-align: end;
+}
+
+.botaofechar {
+    background-color: white;
+    margin-top: 5px;
+    font-size: 17px;
+    border-radius: 5px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.botaofechar:hover {
+    background-color: #EAEBEC;
+}
+
+.subtitulotarefas {
+    margin: 0px;
+    font-size: 14px;
+    color: #6B7780;
+    font-weight: 500;
+}
+
+.datatarefas {
+    font-size: 14px;
+    margin: 0px;
+    color: #4d5052;
+}
+
+.tresp {
+    position: absolute;
+    color: white;
+    font-size: 28px;
+    padding: 10px 15px;
+    cursor: pointer;
 }
