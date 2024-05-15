@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dombosco</title>
+    <title>Painel de controle</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <nav>
@@ -29,10 +30,13 @@
 
     <div class="bloco"><img src="calendario.png" alt="Calendário" class="fotos" id="fotocale"><label for="fotocale" class="textopainel">Calendário</label></div>
 
-    <div class="bloco"></div>
-    <div class="bloco"></div>
-    <div class="bloco"></div>
-    <div class="bloco"></div>
+    <div class="bloco"><img src="carta.png" alt="Carta" class="fotos"><label for="Carta" class="textopainel">Caixa de entrada</label></div>
+
+    <div class="bloco"><img src="relogio.png" alt="Relógio" class="fotos" id="fotorelo"><label for="Relógio" class="textopainel">Histórico</label></div>
+
+    <div class="bloco"><img src="engrenagem.png" alt="Engrenagem" class="fotos"><label for="Engrenagem" class="textopainel">Configu<br>rações</label></div>
+
+    <div class="bloco" id="seta"><img src="setaEsquerda.png" alt="SetaEsquerda" class="fotos" id="setaesquerda"><label for="SetaEsquerda"></label></div>
     </nav>
     <main>
         <div id="paineldomain">
@@ -41,29 +45,81 @@
         </div>
         <div id="linha"></div>
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corPreto"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1">Introdução ao EaD</p>
+                    <p class="textobloco2">Introdução ao EaD</p>
+                </div>
+                <img src="megafone.png" alt="MegaFone" class="iconesbloco">
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+                <img src="balaodeFala.png" alt="BalãodeFala" class="iconesbloco">
+            </div>
         </div>
+
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corPreto"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1">Espaço do Aluno</p>
+                    <p class="textobloco2">Espaço do Aluno</p>
+                </div>
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+            </div>
         </div>
+
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1" id="textoAmarelo">Informática Básica</p>
+                    <p class="textobloco2">Informática Básica</p>
+                </div>
+                <img src="megafone.png" alt="MegaFone" class="iconesbloco">
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+                <img src="balaodeFala.png" alt="BalãodeFala" class="iconesbloco">
+            </div>
         </div>
+
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1" id="textoAmarelo">Mapeamento e Modelagem</p>
+                    <p class="textobloco2">Mapeamento e Modelagem</p>
+                </div>
+                <img src="megafone.png" alt="MegaFone" class="iconesbloco">
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+                <img src="balaodeFala.png" alt="BalãodeFala" class="iconesbloco">
+            </div>
         </div>
+
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1" id="textoAmarelo">Matemática Aplicada</p>
+                    <p class="textobloco2">Matemática Aplicada</p>
+                </div>
+                <img src="megafone.png" alt="MegaFone" class="iconesbloco">
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+                <img src="balaodeFala.png" alt="BalãodeFala" class="iconesbloco">
+            </div>
         </div>
+
         <div class="blocomateria">
-            <img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco">
-            <div class="blocobranco"></div>
+            <div class="corAmarelo"><img src="unidombosco.jpg" alt="LogoUnidombosco" class="imgdomsbosco"></div>
+            <div class="blocobranco">
+                <div class="textobloco">
+                    <p class="textobloco1" id="textoAmarelo">Vida e Carreira</p>
+                    <p class="textobloco2">Vida e Carreira&nbsp;</p>
+                </div>
+                <img src="megafone.png" alt="MegaFone" class="iconesbloco">
+                <img src="pasta.png" alt="Pasta" class="iconesbloco">
+                <img src="balaodeFala.png" alt="BalãodeFala" class="iconesbloco">
+            </div>
         </div>
+        <div id="fimdomain"></div>
     </main>
 </body>
 </html>
