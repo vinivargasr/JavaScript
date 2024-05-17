@@ -1,18 +1,31 @@
 function diminuirbarra() {
     var seta = document.getElementById('seta')
-    var barra = document.getElementById('menubarra')
-    var nomes = document.querySelectorAll('.textopainel')
-    var img = document.getElementsByName('.bloco')
+    seta.classList.toggle('activeseta')
 
-    nomes.forEach(function(elemento) {
-        elemento.innerHTML = ''
-    })
+    var nav = document.getElementById('menubarra')
+    nav.classList.toggle('activenav')
+
+    var foto = document.getElementById('foto')
+    foto.classList.toggle('activefoto')
+
+    var grup = document.getElementById('gruposeb')
+    grup.classList.toggle('activegrup')
+
+    var main = document.getElementsByTagName('main')
     
-    img.forEach(function(blocos){
-        blocos.style.height = '40px'
-        blocos.style.backgroundColor = 'gray'
-    })
+    for (var i = 0; i < main.length; i++) {
+        var posmain = main[i].classList.toggle('activemain')
+    }
 
-    seta.style.transform = 'rotateY(180deg)'
-    barra.style.width = '64px'
+    var text = document.getElementsByTagName('label')
+
+    for (var i = 0; i < text.length; i++) {
+        var listadotext = text[i].classList.toggle('activetext')
+    }
+
+    var blocotam = document.getElementsByClassName('bloco')
+
+    for (var i = 0; i < blocotam.length; i++) {
+        var listadebloc = blocotam[i].classList.toggle('activebloc')
+    }
 }
