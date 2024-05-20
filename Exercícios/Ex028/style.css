@@ -1,0 +1,110 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.sky {
+    background-image: linear-gradient(0, #090979, #020024);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.stars {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    box-shadow:
+    100px 260px white,
+    200px 120px white,
+    300px 500px white,
+    400px 250px white,
+    500px 50px white,
+    600px 450px white,
+    700px 200px white,
+    800px 580px white,
+    850px 400px white,
+    900px 150px white,
+    1000px 100px white,
+    1100px 400px white,
+    1200px 250px white,
+    1280px 500px white;
+    animation: anima_stars 10s linear infinite;
+}
+
+.stars::after {
+    position: absolute;
+    top: 641px;
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    box-shadow:
+    100px 260px white,
+    200px 120px white,
+    300px 500px white,
+    400px 250px white,
+    500px 50px white,
+    600px 450px white,
+    700px 200px white,
+    800px 580px white,
+    850px 400px white,
+    900px 150px white,
+    1000px 100px white,
+    1100px 400px white,
+    1200px 250px white,
+    1280px 500px white;
+}
+
+.starsg {
+    position: relative;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    box-shadow: 
+    230px 150px white,
+    60px 310px white,
+    330px 425px white,
+    450px 80px white,
+    530px 580px white,
+    650px 400px white,
+    700px 150px white,
+    840px 600px white,
+    970px 340px white,
+    1040px 490px white,
+    1170px 150px white,
+    1290px 450px white;
+    animation: anima_stars 20s linear infinite;
+}
+
+.starsg::after {
+    content: '';
+    position: absolute;
+    top: 641px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    box-shadow: 
+    230px 150px white,
+    60px 310px white,
+    330px 425px white,
+    450px 80px white,
+    530px 580px white,
+    650px 400px white,
+    700px 150px white,
+    840px 600px white,
+    970px 340px white,
+    1040px 490px white,
+    1170px 150px white,
+    1290px 450px white;
+}
+
+@keyframes anima_stars {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-100vh);
+    }
+}
