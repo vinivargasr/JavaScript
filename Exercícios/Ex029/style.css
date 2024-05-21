@@ -37,7 +37,7 @@ body {
     }
     to {
         transform: translateX(500px);
-        color: black;
+        color: rgb(121, 193, 235);
     }
 }
 
