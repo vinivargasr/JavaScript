@@ -1,7 +1,7 @@
 # JavaScript
  Curso de JavaScript
 
-Exercícios:
+Exercícios:<br>
 <a href="https://vinivargasr.github.io/JavaScript/Exerc%C3%ADcios/Ex010/ex010g.html" target="_black" >Tabuada 1 até 10</a><br>
 <a href="https://vinivargasr.github.io/JavaScript/Exerc%C3%ADcios/Ex015/ex015.html" target="_black" >Horário do dia</a><br>
 <a href="https://vinivargasr.github.io/JavaScript/Exerc%C3%ADcios/Ex023/ex023.html" target="_black" >Calculadora</a><br>
