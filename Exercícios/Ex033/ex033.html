@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas</title>
+    <style>
+        body {
+            margin: 0px;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #relogio {
+            font-size: 300px;
+        }
+
+        #animate_confetti {
+            margin-top: 10px;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="relogio"></div>
+    <button id="animate_confetti" onclick="click()">🎉</button>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script>
+document.getElementById("animate_confetti").addEventListener("click", () => {
+
+	let params = {
+		particleCount: 300, // Quantidade de confetes
+		spread: 1000, // O quanto eles se espalham
+		startVelocity: 50, // Velocidade inicial
+		origin: { x: 0, y: 1 }, // Posição inicial na tela
+		angle: 45 // Ângulo em que os confetes serão lançados
+	};
+
+	// Joga confetes da esquerda pra direita
+	confetti(params);
+
+	// Joga confetes da direita para a esquerda
+	params.origin.x = 1;
+	params.angle = 135;
+	confetti(params);
+    
+
+});
+</script>
+    <script src="script.js"></script>
+</body>
+</html>
