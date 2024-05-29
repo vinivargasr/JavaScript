@@ -9,6 +9,7 @@ console.log(itc.next().value)
 console.log(itc.next().value)
 console.log(itc.next().value)
 
+// -------------------------------]
 
 function* perguntas() {
     const nome = yield 'Qual seu nome?'
@@ -21,6 +22,7 @@ console.log(itp.next().value)
 console.log(itp.next('Bruno').value)
 console.log(itp.next('Natação').value)
 
+// -------------------------------]
 
 function* contador() {
     let i = 0
