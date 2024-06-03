@@ -10,7 +10,7 @@
 }
 
 .curso:hover {
-    border-color: #282828;
+    border-color: #282828 !important;
 }
 
 .c1 {
