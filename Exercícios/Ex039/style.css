@@ -29,7 +29,9 @@ button {
     border-radius: 10px;
     padding: 10px;
     margin: 5px 0px;
-    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .selecionado {
@@ -65,4 +67,16 @@ button {
     display: flex;
     flex-direction: column;
     margin: 40px;
+}
+
+.btn_lixeira {
+    width: 25px;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 5px;
+    transition-duration: 0.5s;
+}
+
+.btn_lixeira:hover {
+    background-color: rgb(112, 121, 121);
 }
