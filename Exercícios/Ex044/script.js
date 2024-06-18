@@ -55,8 +55,20 @@ tabela.appendChild(cabecalho)
 
 
 // Adicionando os Times a tabela
-times.forEach(time => {
+times.forEach((time, index) => {
     const linha = document.createElement('tr');
+
+    if (index == 0) {
+        linha.classList.add('primeiro')
+    }
+
+    if (index == 1) {
+        linha.classList.add('segundo')
+    }
+
+    if (index == 2) {
+        linha.classList.add('terceiro')
+    }
 
     const nomeTime = document.createElement('td');
     nomeTime.style = 'text-align: left'
