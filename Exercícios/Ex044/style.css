@@ -1,0 +1,46 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    display: flex;
+}
+
+#p1 {
+    background-color: darkslategray;
+    height: 100vh;
+    width: 50%;
+}
+
+#p1 h1 {
+    color: lightgray;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#p2 {
+    background-color: lightgray;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+#p2 h1 {
+    color: darkslategray;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+table th {
+    
+}
+
+table {
+    color: darkslategray;
+    margin: 0px 50px 0px 50px;
+    text-align: center;
+}
