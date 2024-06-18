@@ -3,7 +3,7 @@ const bloco = document.getElementById('p2');
 const adicionarDia = (data, jogos, proximosJogos) => {
     const dia = document.createElement('h2');
     dia.innerHTML = data;
-    dia.style = 'margin: 30px 0px 0px 10px;';
+    dia.style = 'margin: 30px 0px 0px 10px; color: white';
     bloco.appendChild(dia);
 
     const partidas = [];
@@ -18,7 +18,7 @@ const adicionarDia = (data, jogos, proximosJogos) => {
         bloco.appendChild(j);
 
         const resultContainer = document.createElement('div');
-        resultContainer.style = 'display:flex; align-items:center; justify-content:space-between; margin-top: 10px; margin-left:20px; width:580px';
+        resultContainer.style = 'display:flex; align-items:center; justify-content:space-between; margin-top: 10px; margin-left:20px; width:580px; color: white';
 
         const opcoes = [`Vitória ${jogos[i].timeA}`, 'Empate', `Vitória ${jogos[i].timeB}`];
 
