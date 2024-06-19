@@ -116,15 +116,6 @@ var jogosDia2 = [
     { jogo: 12, equipeA: getTeam('Brasil'), equipeB: getTeam('Japão'), local: 'Parc des Princes, Paris' },
 ]
 
-var jogosDia3 = [
-    { jogo: 13, equipeA: getTeam('Nova Zelândia'), equipeB: getTeam('França'), local: 'Stade Geoffroy-Guichard' },
-    { jogo: 14, equipeA: getTeam('Colômbia'), equipeB: getTeam('Canadá'), local: 'Stade de Lyon'},
-    { jogo: 15, equipeA: getTeam('Austrália'), equipeB: getTeam('Estados Unidos'), local: 'Stade de Marseille' },
-    { jogo: 16, equipeA: getTeam('Zâmbia'), equipeB: getTeam('Alemanha'), local: 'Stade de Nice' },
-    { jogo: 17, equipeA: getTeam('Brasil'), equipeB: getTeam('Espanha'), local: 'Stade de la Beaujoire, Nantes' },
-    { jogo: 18, equipeA: getTeam('Japão'), equipeB: getTeam('Nigéria'), local: 'Parc des Princes, Paris' },
-]
-
 // Criando Partidas
 var blocoPartidas = document.getElementById('p1')
 
@@ -198,13 +189,14 @@ function limparJogos() {
     const blocosJogos = [...blocoPartidas.querySelectorAll('#blocoJogos')]
     const botaoLimpar = document.getElementById('botaoNext')
 
+    blocosJogos.map((el) => {
+        el.remove()
+    })
     blocosJogos.forEach((bloco) => {
-        bloco.remove()
+        
+        botaoLimpar.style = 'display: none'
     });
-
-    if (botaoLimpar) {
-        botaoLimpar.style.display = 'none';
-    }  
+    
 }
 
 // Função para limpar a tabela dentro de blocoRank
