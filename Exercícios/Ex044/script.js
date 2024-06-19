@@ -107,40 +107,63 @@ var jogosDia1 = [
     { jogo: 6, equipeA: getTeam('Nigéria'), equipeB: getTeam('Brasil'), local: 'Stade de Bordeaux' },
 ]
 
-console.log(jogosDia1)
+var jogosDia2 = [
+    { jogo: 7, equipeA: getTeam('França'), equipeB: getTeam('Canadá'), local: 'Stade Geoffroy-Guichard' },
+    { jogo: 8, equipeA: getTeam('Nova Zelândia'), equipeB: getTeam('Colômbia'), local: 'Stade de Lyon'},
+    { jogo: 9, equipeA: getTeam('Estados Unidos'), equipeB: getTeam('Alemanha'), local: 'Stade de Marseille' },
+    { jogo: 10, equipeA: getTeam('Austrália'), equipeB: getTeam('Zâmbia'), local: 'Stade de Nice' },
+    { jogo: 11, equipeA: getTeam('Espanha'), equipeB: getTeam('Nigéria'), local: 'Stade de la Beaujoire, Nantes' },
+    { jogo: 12, equipeA: getTeam('Brasil'), equipeB: getTeam('Japão'), local: 'Parc des Princes, Paris' },
+]
+
+var jogosDia3 = [
+    { jogo: 13, equipeA: getTeam('Nova Zelândia'), equipeB: getTeam('França'), local: 'Stade Geoffroy-Guichard' },
+    { jogo: 14, equipeA: getTeam('Colômbia'), equipeB: getTeam('Canadá'), local: 'Stade de Lyon'},
+    { jogo: 15, equipeA: getTeam('Austrália'), equipeB: getTeam('Estados Unidos'), local: 'Stade de Marseille' },
+    { jogo: 16, equipeA: getTeam('Zâmbia'), equipeB: getTeam('Alemanha'), local: 'Stade de Nice' },
+    { jogo: 17, equipeA: getTeam('Brasil'), equipeB: getTeam('Espanha'), local: 'Stade de la Beaujoire, Nantes' },
+    { jogo: 18, equipeA: getTeam('Japão'), equipeB: getTeam('Nigéria'), local: 'Parc des Princes, Paris' },
+]
 
 // Criando Partidas
 var blocoPartidas = document.getElementById('p1')
 
-jogosDia1.forEach((jogo,index) => {
-    const divJogo = document.createElement('div')
-    const cadaPartida = document.createElement('div')
-    divJogo.id = 'blocoJogos'
 
-    cadaPartida.innerHTML = `
-    <h3>Jogo ${jogo.jogo}: ${jogo.equipeA.pais} x ${jogo.equipeB.pais} | ${jogo.local}</h3>
-    <label for="game${index}-team1">${jogo.equipeA.pais} Gols: </label>
-    <input type="number" id="game${index}-team1" name="game${index}-team1" min="0">
-    <label for="game${index}-team2">${jogo.equipeB.pais} Gols: </label>
-    <input type="number" id="game${index}-team2" name="game${index}-team2" min="0">
-    <br><br>`
+function renderDia(dia) {
+    limparJogos()
 
-    divJogo.appendChild(cadaPartida)
-    blocoPartidas.appendChild(divJogo)
+    dia.forEach((jogo, index) => {
+        const divJogo = document.createElement('div')
+        const cadaPartida = document.createElement('div')
+        divJogo.id = 'blocoJogos'
 
-    if (index === jogosDia1.length - 1) {
-        const botaoMostrar = document.createElement('button');
-        const divBotao = document.createElement('div')
-        
-        divBotao.id = 'divBotao'
-        botaoMostrar.textContent = 'Proximo Dia ->';
-        botaoMostrar.id = 'botaoNext'
-        botaoMostrar.onclick = mostrarResultados;
+        cadaPartida.innerHTML = `
+        <h3>Jogo ${jogo.jogo}: ${jogo.equipeA.pais} x ${jogo.equipeB.pais} | ${jogo.local}</h3>
+        <label for="game${index}-team1">${jogo.equipeA.pais} Gols: </label>
+        <input type="number" id="game${index}-team1" name="game${index}-team1" min="0">
+        <label for="game${index}-team2">${jogo.equipeB.pais} Gols: </label>
+        <input type="number" id="game${index}-team2" name="game${index}-team2" min="0">
+        <br><br>`
 
-        divBotao.appendChild(botaoMostrar)
-        blocoPartidas.appendChild(divBotao);
-    }
-})
+        divJogo.appendChild(cadaPartida)
+        blocoPartidas.appendChild(divJogo)
+
+        if (index === dia.length - 1) {
+            const botaoMostrar = document.createElement('button');
+            const divBotao = document.createElement('div')
+            
+            divBotao.id = 'divBotao'
+            botaoMostrar.textContent = 'Proximo Dia ->';
+            botaoMostrar.id = 'botaoNext'
+            botaoMostrar.onclick = mostrarResultados;
+
+            divBotao.appendChild(botaoMostrar)
+            blocoPartidas.appendChild(divBotao);
+        }
+    })
+}
+
+renderDia(jogosDia1); // Renderiza o dia 1 inicialmente
 
 // Resultados dos Jogos
 function mostrarResultados() {
@@ -166,6 +189,22 @@ function mostrarResultados() {
     }
 })
 updateTable()
+limparJogos()
+renderDia(jogosDia2)
+}
+
+function limparJogos() {
+    const blocoPartidas = document.getElementById('p1')
+    const blocosJogos = [...blocoPartidas.querySelectorAll('#blocoJogos')]
+    const botaoLimpar = document.getElementById('botaoNext')
+
+    blocosJogos.forEach((bloco) => {
+        bloco.remove()
+    });
+
+    if (botaoLimpar) {
+        botaoLimpar.style.display = 'none';
+    }  
 }
 
 // Função para limpar a tabela dentro de blocoRank
