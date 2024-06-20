@@ -98,6 +98,27 @@ function getTeam(pais) {
     return times.find(team => team.pais === pais);
 }
 
+const grupos = {
+    GrupoA: [
+        getTeam('França'),
+        getTeam('Colômbia'),
+        getTeam('Canadá'),
+        getTeam('Nova Zelândia')
+    ],
+    GrupoB: [
+        getTeam('Estados Unidos'),
+        getTeam('Zâmbia'),
+        getTeam('Alemanha'),
+        getTeam('Austrália')
+    ],
+    GrupoC: [
+        getTeam('Espanha'),
+        getTeam('Japão'),
+        getTeam('Nigéria'),
+        getTeam('Brasil')
+    ]
+}
+
 var jogosDia1 = [
     { jogo: 1, equipeA: getTeam('França'), equipeB: getTeam('Colômbia'), local: 'Stade de Lyon' },
     { jogo: 2, equipeA: getTeam('Canadá'), equipeB: getTeam('Nova Zelândia'), local: 'Stade Geoffroy-Guichard'},
@@ -116,9 +137,17 @@ var jogosDia2 = [
     { jogo: 12, equipeA: getTeam('Brasil'), equipeB: getTeam('Japão'), local: 'Parc des Princes, Paris' },
 ]
 
+var jogosDia3 = [
+    { jogo: 13, equipeA: getTeam('Nova Zelândia'), equipeB: getTeam('França'), local: 'Stade de Lyon' },
+    { jogo: 14, equipeA: getTeam('Colômbia'), equipeB: getTeam('Canadá'), local: 'Stade de Nice'},
+    { jogo: 15, equipeA: getTeam('Austrália'), equipeB: getTeam('Estados Unidos'), local: 'Stade de Marseille' },
+    { jogo: 16, equipeA: getTeam('Zâmbia'), equipeB: getTeam('Alemanha'), local: 'Stade Geoffroy-Guichard' },
+    { jogo: 17, equipeA: getTeam('Brasil'), equipeB: getTeam('Espanha'), local: '	Stade de Bordeaux' },
+    { jogo: 18, equipeA: getTeam('Japão'), equipeB: getTeam('Nigéria'), local: 'Stade de la Beaujoire, Nantes' },
+]
+
 // Criando Partidas
 var blocoPartidas = document.getElementById('p1')
-
 
 function renderDia(dia) {
     limparJogos()
@@ -126,7 +155,13 @@ function renderDia(dia) {
     dia.forEach((jogo, index) => {
         const divJogo = document.createElement('div')
         const cadaPartida = document.createElement('div')
+        const titulo = document.createElement('h1')
         divJogo.id = 'blocoJogos'
+        
+        if(index == 0) {
+            titulo.innerHTML = 'Partidas olimpicas'
+            blocoPartidas.appendChild(titulo)
+        }
 
         cadaPartida.innerHTML = `
         <h3>Jogo ${jogo.jogo}: ${jogo.equipeA.pais} x ${jogo.equipeB.pais} | ${jogo.local}</h3>
@@ -140,16 +175,18 @@ function renderDia(dia) {
         blocoPartidas.appendChild(divJogo)
 
         if (index === dia.length - 1) {
-            const botaoMostrar = document.createElement('button');
+            const botaoMostrar = document.createElement('button')
             const divBotao = document.createElement('div')
             
             divBotao.id = 'divBotao'
-            botaoMostrar.textContent = 'Proximo Dia ->';
+            botaoMostrar.textContent = 'Proximo Dia ->'
             botaoMostrar.id = 'botaoNext'
-            botaoMostrar.onclick = mostrarResultados;
+            botaoMostrar.onclick = () => {
+                mostrarResultados(dia)
+            }
 
             divBotao.appendChild(botaoMostrar)
-            blocoPartidas.appendChild(divBotao);
+            blocoPartidas.appendChild(divBotao)
         }
     })
 }
@@ -157,46 +194,42 @@ function renderDia(dia) {
 renderDia(jogosDia1); // Renderiza o dia 1 inicialmente
 
 // Resultados dos Jogos
-function mostrarResultados() {
-    jogosDia1.forEach((jogo, index) => {
+function mostrarResultados(dia) {
+    dia.forEach((jogo, index) => {
         var time1Gols = parseInt(document.getElementById(`game${index}-team1`).value) || 0
         var time2Gols = parseInt(document.getElementById(`game${index}-team2`).value) || 0
     
-    if (time1Gols > time2Gols) {
-        jogo.equipeA.vitoria++;
-        jogo.equipeB.derrota++;
-        jogo.equipeA.pontos += 3;
+        if (time1Gols > time2Gols) {
+            jogo.equipeA.vitoria++
+            jogo.equipeB.derrota++
+            jogo.equipeA.pontos += 3
 
-    } else if (time1Gols < time2Gols) {
-        jogo.equipeB.vitoria++;
-        jogo.equipeA.derrota++;
-        jogo.equipeB.pontos += 3;
+        } else if (time1Gols < time2Gols) {
+            jogo.equipeB.vitoria++
+            jogo.equipeA.derrota++
+            jogo.equipeB.pontos += 3
 
-    } else {
-        jogo.equipeA.empate++;
-        jogo.equipeB.empate++;
-        jogo.equipeA.pontos++;
-        jogo.equipeB.pontos++;
+        } else {
+            jogo.equipeA.empate++
+            jogo.equipeB.empate++
+            jogo.equipeA.pontos++
+            jogo.equipeB.pontos++
+        }
+    })
+    updateTable()
+    limparJogos()
+    if (dia === jogosDia1) {
+        renderDia(jogosDia2)
+    } else if (dia === jogosDia2) {
+        renderDia(jogosDia3)
     }
-})
-updateTable()
-limparJogos()
-renderDia(jogosDia2)
 }
 
 function limparJogos() {
-    const blocoPartidas = document.getElementById('p1')
-    const blocosJogos = [...blocoPartidas.querySelectorAll('#blocoJogos')]
-    const botaoLimpar = document.getElementById('botaoNext')
-
-    blocosJogos.map((el) => {
-        el.remove()
-    })
-    blocosJogos.forEach((bloco) => {
-        
-        botaoLimpar.style = 'display: none'
-    });
-    
+    const blocoPartidas = document.getElementById('p1');
+    while (blocoPartidas.firstChild) {
+        blocoPartidas.removeChild(blocoPartidas.firstChild);
+    }
 }
 
 // Função para limpar a tabela dentro de blocoRank
