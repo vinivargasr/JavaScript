@@ -149,6 +149,7 @@ var jogosDia3 = [
 // Criando Partidas
 var blocoPartidas = document.getElementById('p1')
 
+
 function renderDia(dia) {
     limparJogos()
 
@@ -159,7 +160,7 @@ function renderDia(dia) {
         divJogo.id = 'blocoJogos'
         
         if(index == 0) {
-            titulo.innerHTML = 'Partidas olimpicas'
+            titulo.innerHTML = 'Partidas olimpícas'
             blocoPartidas.appendChild(titulo)
         }
 
@@ -217,6 +218,7 @@ function mostrarResultados(dia) {
         }
     })
     updateTable()
+    updateGrupos()
     limparJogos()
     if (dia === jogosDia1) {
         renderDia(jogosDia2)
@@ -240,6 +242,15 @@ function limparTabela() {
     if (tabelaAntiga) {
         blocoRank.removeChild(tabelaAntiga); // Remove a tabela antiga, se existir
     }
+}
+
+function limparTabelasGrupos() {
+    const blocoRank = document.getElementById('p2');
+    const tabelasGrupos = blocoRank.querySelectorAll('.todos-grupos');
+
+    tabelasGrupos.forEach(grupo => {
+        blocoRank.removeChild(grupo);
+    });
 }
 
 function updateTable() {
@@ -310,3 +321,63 @@ function updateTable() {
 
     blocoRank.appendChild(tabela);
 }
+
+
+
+function updateGrupos() {
+    limparTabelasGrupos()
+
+    const blocoRank = document.getElementById('p2');
+    const gruposKeys = Object.keys(grupos);
+
+    // Cria um contêiner div para todas as tabelas de grupos
+    const divTodosGrupos = document.createElement('div');
+    divTodosGrupos.classList.add('todos-grupos')
+
+    gruposKeys.forEach(grupo => {
+        const divGrupo = document.createElement('div')
+        divGrupo.classList.add('grupo')
+
+        const tabelaGrupos = document.createElement('table');
+        
+        const grupoNome = grupo.slice(0, 5)
+        const grupoNumero = grupo.slice(5)
+
+        const thGrupo = document.createElement('th');
+        thGrupo.innerHTML = `${grupoNome} ${grupoNumero}`;
+        tabelaGrupos.appendChild(thGrupo);
+
+        const thPontos = document.createElement('th');
+        thPontos.innerHTML = 'Pontos';
+        tabelaGrupos.appendChild(thPontos);
+
+        // Obtém os países do grupo atual e ordena por pontos
+        const paises = grupos[grupo].sort((a, b) => b.pontos - a.pontos);
+
+        // Cria uma linha para cada país no grupo
+        paises.forEach(pais => {
+            const tr = document.createElement('tr');
+
+            const tdNomePais = document.createElement('td');
+            tdNomePais.innerHTML = pais.pais;
+            tr.appendChild(tdNomePais);
+
+            const tdPontosPais = document.createElement('td');
+            tdPontosPais.innerHTML = pais.pontos;
+            tr.appendChild(tdPontosPais);
+
+            tabelaGrupos.appendChild(tr);
+        });
+
+        // Adiciona a tabela ao contêiner do grupo (divGrupo)
+        divGrupo.appendChild(tabelaGrupos);
+
+        // Adiciona o contêiner do grupo ao contêiner de todas as tabelas de grupos
+        divTodosGrupos.appendChild(divGrupo);
+    });
+
+    // Adiciona o contêiner de todas as tabelas de grupos ao blocoRank
+    blocoRank.appendChild(divTodosGrupos);
+}
+
+updateGrupos()

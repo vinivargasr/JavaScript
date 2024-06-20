@@ -84,6 +84,7 @@ input {
 #botaoNext {
     padding: 5px;
     border: 1px solid lightgray;
+    color: darkslategray;
     border-radius: 3px;
     transition-duration: 0.3s;
     cursor: pointer;
@@ -99,4 +100,15 @@ input {
     align-items: center;
     justify-content: right;
     margin-right: 50px;
+}
+
+.todos-grupos {
+    display: flex;
+    overflow-x: auto;
+    margin-top: 50px;
+}
+
+.grupo {
+    text-wrap: nowrap;
+    width: 230px;
 }
