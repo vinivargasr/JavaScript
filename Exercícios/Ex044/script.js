@@ -224,6 +224,8 @@ function mostrarResultados(dia) {
         renderDia(jogosDia2)
     } else if (dia === jogosDia2) {
         renderDia(jogosDia3)
+    } else if (dia === jogosDia3) {
+        renderDia4()
     }
 }
 
@@ -381,3 +383,25 @@ function updateGrupos() {
 }
 
 updateGrupos()
+
+function definirPartidasDia4() {
+    // Classificar times dentro de cada grupo com base nos pontos
+    Object.values(grupos).forEach(grupo => grupo.sort((a, b) => b.pontos - a.pontos));
+
+    const grupoA = grupos.GrupoA;
+    const grupoB = grupos.GrupoB;
+    const grupoC = grupos.GrupoC;
+
+    // Definir as equipes para os jogos do Dia 4
+    const jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoB[2].pontos >= grupoC[2].pontos ? grupoB[2] : grupoC[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
+    const jogo20 = { jogo: 20, equipeA: grupoB[0], equipeB: grupoC[1], local: 'Parc des Princes, Paris', horario: '15:00' };
+    const jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2].pontos >= grupoB[2].pontos ? grupoA[2] : grupoB[2], local: 'Stade de Lyon', horario: '17:00' };
+    const jogo22 = { jogo: 22, equipeA: grupoA[1], equipeB: grupoB[1], local: 'Stade de Marseille', horario: '19:00' };
+
+    return [jogo19, jogo20, jogo21, jogo22];
+}
+
+function renderDia4() {
+    const jogosDia4 = definirPartidasDia4();
+    renderDia(jogosDia4);
+}
