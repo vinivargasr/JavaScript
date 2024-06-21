@@ -248,14 +248,12 @@ function mostrarResultados(dia) {
         }
     });
 
-    updateTable();  // Função para atualizar a tabela de resultados na interface
-    updateGrupos(); // Função para atualizar as tabelas de grupos na interface
-    limparJogos();  // Função para limpar os campos de entrada de resultados na interface
+    updateTable()
+    updateGrupos()
+    limparJogos()
 
-    // Atualizar para o próximo dia de jogos
     diaAtual++;
 
-    // Determinar qual é o próximo dia de jogos e renderizar na interface
     if (diaAtual === 2) {
         renderDia(jogosDia2);
     } else if (diaAtual === 3) {
@@ -436,20 +434,20 @@ function definirPartidasDia4() {
 
     // Definir partida 19
     if (grupoB[2].pontos >= grupoC[2].pontos) {
-        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoB[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
+        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoB[2], local: 'Stade de la Beaujoire, Nantes'};
     } else {
-        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoC[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
+        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoC[2], local: 'Stade de la Beaujoire, Nantes'};
     }
 
     // Definir partida 21 garantindo que o time 3A seja escolhido se o time 3B foi escolhido para o jogo 19
     if (jogo19.equipeB === grupoB[2]) {
-        jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon', horario: '17:00' };
+        jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon'};
     } else {
         // Se o time 3B não foi escolhido para o jogo 19, escolher entre o time 3B e 3A com mais pontos
         if (grupoA[2].pontos >= grupoB[2].pontos) {
-            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon', horario: '17:00' };
+            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon'};
         } else {
-            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoB[2], local: 'Stade de Lyon', horario: '17:00' };
+            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoB[2], local: 'Stade de Lyon'};
         }
     }
 
