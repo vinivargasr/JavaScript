@@ -153,6 +153,9 @@ var blocoPartidas = document.getElementById('p1')
 function renderDia(dia) {
     limparJogos()
 
+    const form = document.createElement('form')
+    form.id = 'formPartidas'
+    
     dia.forEach((jogo, index) => {
         const divJogo = document.createElement('div')
         const cadaPartida = document.createElement('div')
@@ -160,35 +163,58 @@ function renderDia(dia) {
         divJogo.id = 'blocoJogos'
         
         if(index == 0) {
-            titulo.innerHTML = 'Partidas olimpícas'
+            titulo.innerHTML = 'Partidas olímpicas'
             blocoPartidas.appendChild(titulo)
         }
 
         cadaPartida.innerHTML = `
         <h3>Jogo ${jogo.jogo}: ${jogo.equipeA.pais} x ${jogo.equipeB.pais} | ${jogo.local}</h3>
         <label for="game${index}-team1">${jogo.equipeA.pais} Gols: </label>
-        <input type="number" id="game${index}-team1" name="game${index}-team1" min="0">
+        <input type="number" id="game${index}-team1" name="game${index}-team1" min="0" required>
         <label for="game${index}-team2">${jogo.equipeB.pais} Gols: </label>
-        <input type="number" id="game${index}-team2" name="game${index}-team2" min="0">
+        <input type="number" id="game${index}-team2" name="game${index}-team2" min="0" required>
         <br><br>`
 
         divJogo.appendChild(cadaPartida)
-        blocoPartidas.appendChild(divJogo)
+        form.appendChild(divJogo)
+    })
 
-        if (index === dia.length - 1) {
-            const botaoMostrar = document.createElement('button')
-            const divBotao = document.createElement('div')
-            
-            divBotao.id = 'divBotao'
-            botaoMostrar.textContent = 'Proximo Dia ->'
-            botaoMostrar.id = 'botaoNext'
-            botaoMostrar.onclick = () => {
-                mostrarResultados(dia)
-            }
+    const divBotao = document.createElement('div')
+    divBotao.id = 'divBotao'
+    
+    const botaoMostrar = document.createElement('button')
+    botaoMostrar.textContent = 'Proximo Dia ->'
+    botaoMostrar.id = 'botaoNext'
+    botaoMostrar.type = 'submit' // Define o botão como tipo submit
 
-            divBotao.appendChild(botaoMostrar)
-            blocoPartidas.appendChild(divBotao)
-        }
+    const botaoAleatorio = document.createElement('button')
+    botaoAleatorio.textContent = 'Jogos aleatórios'
+    botaoAleatorio.id = 'botaoRandom'
+    botaoAleatorio.type = 'button' // Define o botão como tipo button
+
+    botaoAleatorio.onclick = () => {
+        dia.forEach((jogo, index) => {
+            const team1Input = document.getElementById(`game${index}-team1`);
+            const team2Input = document.getElementById(`game${index}-team2`);
+
+            // Gerando números aleatórios para os gols
+            const randomGoalsTeam1 = Math.random() < 0.005 ? 999 : Math.floor(Math.random() * 8)
+            const randomGoalsTeam2 = Math.random() < 0.005 ? 999 : Math.floor(Math.random() * 8)
+
+            // Atualizando os valores nos inputs
+            team1Input.value = randomGoalsTeam1;
+            team2Input.value = randomGoalsTeam2;
+        });
+    };
+
+    divBotao.appendChild(botaoAleatorio)
+    divBotao.appendChild(botaoMostrar)
+    form.appendChild(divBotao)
+    blocoPartidas.appendChild(form)
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault() // Previne o envio do formulário
+        mostrarResultados(dia) // Chama a função de mostrar resultados
     })
 }
 

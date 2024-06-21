@@ -81,7 +81,7 @@ input {
     margin-top: 10px;
 }
 
-#botaoNext {
+button {
     padding: 5px;
     border: 1px solid lightgray;
     color: darkslategray;
@@ -90,7 +90,7 @@ input {
     cursor: pointer;
 }
 
-#botaoNext:hover {
+button:hover {
     background-color: darkslategray;
     color: lightgray;
 }
@@ -98,7 +98,7 @@ input {
 #divBotao {
     display: flex;
     align-items: center;
-    justify-content: right;
+    justify-content: space-evenly;
     margin-right: 50px;
 }
 
