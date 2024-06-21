@@ -222,6 +222,7 @@ renderDia(jogosDia1); // Renderiza o dia 1 inicialmente
 
 // Resultados dos Jogos
 let diaAtual = 1;
+let jogosResultados = []
 
 function mostrarResultados(dia) {
     dia.forEach((jogo, index) => {
@@ -248,9 +249,12 @@ function mostrarResultados(dia) {
         }
     });
 
-    updateTable()
-    updateGrupos()
-    limparJogos()
+    updateTable();
+    updateGrupos();
+    limparJogos();
+
+    // Armazenar os resultados dos jogos processados
+    jogosResultados = dia.map(jogo => ({ ...jogo }));
 
     diaAtual++;
 
@@ -261,8 +265,9 @@ function mostrarResultados(dia) {
     } else if (diaAtual === 4) {
         renderDia4();
     } else if (diaAtual === 5) {
-        renderDia(definirPartidasDia5())
-        // Caso tenha mais dias a serem renderizados, adicione a lógica aqui
+        renderDia(definirPartidasDia5());
+    } else if (diaAtual === 6) {
+        renderDia(definirPartidasDia6());
     }
 }
 
@@ -464,26 +469,45 @@ function renderDia4() {
 }
 
 function definirPartidasDia5() {
-    // Classificar times dentro de cada grupo com base nos pontos
-    Object.values(grupos).forEach(grupo => grupo.sort((a, b) => b.pontos - a.pontos));
+    // Definir os jogos do Dia 5 com base nos resultados armazenados (jogosResultados)
+    const vencedorJogo19 = jogosResultados[0].resultado.vencedor;
+    const vencedorJogo21 = jogosResultados[2].resultado.vencedor;
+    const vencedorJogo20 = jogosResultados[1].resultado.vencedor;
+    const vencedorJogo22 = jogosResultados[3].resultado.vencedor;
 
-    const grupoA = grupos.GrupoA;
-    const grupoB = grupos.GrupoB;
-    const grupoC = grupos.GrupoC;
+    const jogo23 = {
+        jogo: 23,
+        equipeA: vencedorJogo19,
+        equipeB: vencedorJogo21,
+        local: 'Stade de Marseille',
+        horario: '21:00'
+    };
 
-    // Verificar os vencedores dos jogos do Dia 4
-    const vencedorJogo19 = grupoA[0].pontos > grupoB[2].pontos ? grupoA[0] : grupoB[2];
-    const vencedorJogo20 = grupoB[0].pontos > grupoC[1].pontos ? grupoB[0] : grupoC[1];
-    const vencedorJogo21 = grupoC[0].pontos > grupoA[2].pontos ? grupoC[0] : grupoA[2];
-    const vencedorJogo22 = grupoA[1].pontos > grupoB[1].pontos ? grupoA[1] : grupoB[1];
-
-    // Definir as equipes para os jogos do Dia 5
-    const jogo23 = { jogo: 23, equipeA: vencedorJogo19, equipeB: vencedorJogo21, local: 'Stade de Marseille', horario: '21:00', resultado: {} };
-    const jogo24 = { jogo: 24, equipeA: vencedorJogo20, equipeB: vencedorJogo22, local: 'Stade de Lyon', horario: '18:00', resultado: {} };
+    const jogo24 = {
+        jogo: 24,
+        equipeA: vencedorJogo20,
+        equipeB: vencedorJogo22,
+        local: 'Stade de Lyon',
+        horario: '18:00'
+    };
 
     return [jogo23, jogo24];
 }
 
 function renderDia5() {
     return definirPartidasDia5();
+}
+
+function definirPartidasDia6() {
+    // Obter os resultados dos jogos anteriores (jogosResultados contém os resultados do Dia 5)
+    const resultadosDia5 = jogosResultados;
+
+    // Determinar os perdedores dos jogos do Dia 5
+    const perdedorJogo23 = resultadosDia5[0].resultado.perdedor;
+    const perdedorJogo24 = resultadosDia5[1].resultado.perdedor;
+
+    // Definir o jogo 25 do Dia 6
+    const jogo25 = {jogo: 25,equipeA: perdedorJogo23,equipeB: perdedorJogo24,local: 'Stade de Lyon'};
+
+    return [jogo25];
 }
