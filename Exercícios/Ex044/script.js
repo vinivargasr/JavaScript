@@ -221,37 +221,50 @@ function renderDia(dia) {
 renderDia(jogosDia1); // Renderiza o dia 1 inicialmente
 
 // Resultados dos Jogos
+let diaAtual = 1;
+
 function mostrarResultados(dia) {
     dia.forEach((jogo, index) => {
-        var time1Gols = parseInt(document.getElementById(`game${index}-team1`).value) || 0
-        var time2Gols = parseInt(document.getElementById(`game${index}-team2`).value) || 0
+        var time1Gols = parseInt(document.getElementById(`game${index}-team1`).value) || 0;
+        var time2Gols = parseInt(document.getElementById(`game${index}-team2`).value) || 0;
     
+        // Atualizar resultados do jogo
         if (time1Gols > time2Gols) {
-            jogo.equipeA.vitoria++
-            jogo.equipeB.derrota++
-            jogo.equipeA.pontos += 3
-
+            jogo.resultado = { vencedor: jogo.equipeA, perdedor: jogo.equipeB, golsA: time1Gols, golsB: time2Gols };
+            jogo.equipeA.vitoria++;
+            jogo.equipeB.derrota++;
+            jogo.equipeA.pontos += 3;
         } else if (time1Gols < time2Gols) {
-            jogo.equipeB.vitoria++
-            jogo.equipeA.derrota++
-            jogo.equipeB.pontos += 3
-
+            jogo.resultado = { vencedor: jogo.equipeB, perdedor: jogo.equipeA, golsA: time2Gols, golsB: time1Gols };
+            jogo.equipeB.vitoria++;
+            jogo.equipeA.derrota++;
+            jogo.equipeB.pontos += 3;
         } else {
-            jogo.equipeA.empate++
-            jogo.equipeB.empate++
-            jogo.equipeA.pontos++
-            jogo.equipeB.pontos++
+            jogo.resultado = { empate: true, golsA: time1Gols, golsB: time2Gols };
+            jogo.equipeA.empate++;
+            jogo.equipeB.empate++;
+            jogo.equipeA.pontos++;
+            jogo.equipeB.pontos++;
         }
-    })
-    updateTable()
-    updateGrupos()
-    limparJogos()
-    if (dia === jogosDia1) {
-        renderDia(jogosDia2)
-    } else if (dia === jogosDia2) {
-        renderDia(jogosDia3)
-    } else if (dia === jogosDia3) {
-        renderDia4()
+    });
+
+    updateTable();  // Função para atualizar a tabela de resultados na interface
+    updateGrupos(); // Função para atualizar as tabelas de grupos na interface
+    limparJogos();  // Função para limpar os campos de entrada de resultados na interface
+
+    // Atualizar para o próximo dia de jogos
+    diaAtual++;
+
+    // Determinar qual é o próximo dia de jogos e renderizar na interface
+    if (diaAtual === 2) {
+        renderDia(jogosDia2);
+    } else if (diaAtual === 3) {
+        renderDia(jogosDia3);
+    } else if (diaAtual === 4) {
+        renderDia4();
+    } else if (diaAtual === 5) {
+        renderDia(definirPartidasDia5())
+        // Caso tenha mais dias a serem renderizados, adicione a lógica aqui
     }
 }
 
@@ -419,10 +432,30 @@ function definirPartidasDia4() {
     const grupoC = grupos.GrupoC;
 
     // Definir as equipes para os jogos do Dia 4
-    const jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoB[2].pontos >= grupoC[2].pontos ? grupoB[2] : grupoC[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
-    const jogo20 = { jogo: 20, equipeA: grupoB[0], equipeB: grupoC[1], local: 'Parc des Princes, Paris', horario: '15:00' };
-    const jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2].pontos >= grupoB[2].pontos ? grupoA[2] : grupoB[2], local: 'Stade de Lyon', horario: '17:00' };
-    const jogo22 = { jogo: 22, equipeA: grupoA[1], equipeB: grupoB[1], local: 'Stade de Marseille', horario: '19:00' };
+    let jogo19, jogo20, jogo21, jogo22;
+
+    // Definir partida 19
+    if (grupoB[2].pontos >= grupoC[2].pontos) {
+        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoB[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
+    } else {
+        jogo19 = { jogo: 19, equipeA: grupoA[0], equipeB: grupoC[2], local: 'Stade de la Beaujoire, Nantes', horario: '21:00' };
+    }
+
+    // Definir partida 21 garantindo que o time 3A seja escolhido se o time 3B foi escolhido para o jogo 19
+    if (jogo19.equipeB === grupoB[2]) {
+        jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon', horario: '17:00' };
+    } else {
+        // Se o time 3B não foi escolhido para o jogo 19, escolher entre o time 3B e 3A com mais pontos
+        if (grupoA[2].pontos >= grupoB[2].pontos) {
+            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoA[2], local: 'Stade de Lyon', horario: '17:00' };
+        } else {
+            jogo21 = { jogo: 21, equipeA: grupoC[0], equipeB: grupoB[2], local: 'Stade de Lyon', horario: '17:00' };
+        }
+    }
+
+    // Definir as demais partidas
+    jogo20 = { jogo: 20, equipeA: grupoB[0], equipeB: grupoC[1], local: 'Parc des Princes, Paris', horario: '15:00' };
+    jogo22 = { jogo: 22, equipeA: grupoA[1], equipeB: grupoB[1], local: 'Stade de Marseille', horario: '19:00' };
 
     return [jogo19, jogo20, jogo21, jogo22];
 }
@@ -430,4 +463,29 @@ function definirPartidasDia4() {
 function renderDia4() {
     const jogosDia4 = definirPartidasDia4();
     renderDia(jogosDia4);
+}
+
+function definirPartidasDia5() {
+    // Classificar times dentro de cada grupo com base nos pontos
+    Object.values(grupos).forEach(grupo => grupo.sort((a, b) => b.pontos - a.pontos));
+
+    const grupoA = grupos.GrupoA;
+    const grupoB = grupos.GrupoB;
+    const grupoC = grupos.GrupoC;
+
+    // Verificar os vencedores dos jogos do Dia 4
+    const vencedorJogo19 = grupoA[0].pontos > grupoB[2].pontos ? grupoA[0] : grupoB[2];
+    const vencedorJogo20 = grupoB[0].pontos > grupoC[1].pontos ? grupoB[0] : grupoC[1];
+    const vencedorJogo21 = grupoC[0].pontos > grupoA[2].pontos ? grupoC[0] : grupoA[2];
+    const vencedorJogo22 = grupoA[1].pontos > grupoB[1].pontos ? grupoA[1] : grupoB[1];
+
+    // Definir as equipes para os jogos do Dia 5
+    const jogo23 = { jogo: 23, equipeA: vencedorJogo19, equipeB: vencedorJogo21, local: 'Stade de Marseille', horario: '21:00', resultado: {} };
+    const jogo24 = { jogo: 24, equipeA: vencedorJogo20, equipeB: vencedorJogo22, local: 'Stade de Lyon', horario: '18:00', resultado: {} };
+
+    return [jogo23, jogo24];
+}
+
+function renderDia5() {
+    return definirPartidasDia5();
 }
