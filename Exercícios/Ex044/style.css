@@ -112,3 +112,31 @@ button:hover {
     text-wrap: nowrap;
     width: 230px;
 }
+
+#vencedores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px
+}
+
+#top1 {
+    font-size: 70px;
+    color: rgb(250, 250, 83);
+}
+
+#top2 {
+    font-size: 40px;
+    color: rgb(170, 168, 168);
+}
+
+#top3 {
+    font-size: 25px;
+    color:  rgb(248, 192, 128);
+}
+
+#animate_confetti {
+    font-size: 10px;
+    margin-top: 100px;
+}

@@ -183,7 +183,7 @@ function renderDia(dia) {
     divBotao.id = 'divBotao'
     
     const botaoMostrar = document.createElement('button')
-    botaoMostrar.textContent = 'Proximo Dia ->'
+    botaoMostrar.textContent = 'Proximo dia ->'
     botaoMostrar.id = 'botaoNext'
     botaoMostrar.type = 'submit' // Define o botão como tipo submit
 
@@ -268,6 +268,8 @@ function mostrarResultados(dia) {
         renderDia(definirPartidasDia5());
     } else if (diaAtual === 6) {
         renderDia(definirPartidasDia6());
+    } else if (diaAtual === 7) {
+        renderDiaFinal()
     }
 }
 
@@ -499,15 +501,92 @@ function renderDia5() {
 }
 
 function definirPartidasDia6() {
-    // Obter os resultados dos jogos anteriores (jogosResultados contém os resultados do Dia 5)
-    const resultadosDia5 = jogosResultados;
+    // Definir os jogos do Dia 6 com base nos resultados armazenados (jogosResultados)
+    const vencedorJogo23 = jogosResultados[0].resultado.vencedor;
+    const vencedorJogo24 = jogosResultados[1].resultado.vencedor;
+    const perdedorJogo23 = jogosResultados[0].resultado.perdedor;
+    const perdedorJogo24 = jogosResultados[1].resultado.perdedor;
 
-    // Determinar os perdedores dos jogos do Dia 5
-    const perdedorJogo23 = resultadosDia5[0].resultado.perdedor;
-    const perdedorJogo24 = resultadosDia5[1].resultado.perdedor;
+    const jogo25 = {
+        jogo: 25,
+        equipeA: perdedorJogo23,
+        equipeB: perdedorJogo24,
+        local: 'Stade de la Beaujoire, Nantes',
+        horario: '18:00',
+        titulo: 'Decisão do 3º Lugar'
+    };
 
-    // Definir o jogo 25 do Dia 6
-    const jogo25 = {jogo: 25,equipeA: perdedorJogo23,equipeB: perdedorJogo24,local: 'Stade de Lyon'};
+    const jogo26 = {
+        jogo: 26,
+        equipeA: vencedorJogo23,
+        equipeB: vencedorJogo24,
+        local: 'Stade de France, Paris',
+        horario: '21:00',
+        titulo: 'Final'
+    };
 
-    return [jogo25];
+    return [jogo25, jogo26];
+}
+
+function renderDia6() {
+    const jogosDia6 = definirPartidasDia6();
+    renderDia(jogosDia6);
+}
+
+function renderDiaFinal() {
+    limparJogos();
+    const divFinal = document.createElement('div');
+    const titulo = document.createElement('h1');
+    titulo.innerHTML = 'Final das olimpíadas';
+    const divNomes = document.createElement('div')
+    divNomes.id = 'vencedores'
+    divFinal.appendChild(titulo);
+
+    const vencedorFinal = jogosResultados[1].resultado.vencedor
+    const viceFinal = jogosResultados[1].resultado.perdedor
+    const terceiroFinal = jogosResultados[0].resultado.vencedor
+    
+
+    const h3Vencedor = document.createElement('h2');
+    h3Vencedor.innerHTML = `1° ${vencedorFinal.pais}`;
+    divNomes.appendChild(h3Vencedor);
+    h3Vencedor.id = 'top1'
+    
+    const h3Vice = document.createElement('h2');
+    h3Vice.innerHTML = `2° ${viceFinal.pais}`;
+    divNomes.appendChild(h3Vice);
+    h3Vice.id = 'top2'
+
+    const h3Terceiro = document.createElement('h2');
+    h3Terceiro.innerHTML = `3° ${terceiroFinal.pais}`;
+    divNomes.appendChild(h3Terceiro);
+    h3Terceiro.id = 'top3'
+    
+    divFinal.appendChild(divNomes)
+    blocoPartidas.appendChild(divFinal);
+
+    const btn_confetes = document.createElement('button');
+btn_confetes.id = 'animate_confetti';
+btn_confetes.innerHTML = '🎉';
+
+btn_confetes.addEventListener("click", () => {
+    let params = {
+        particleCount: 500, // Quantidade de confetes
+        spread: 190, // O quanto eles se espalham
+        startVelocity: 70, // Velocidade inicial
+        origin: { x: 0, y: 1 }, // Posição inicial na tela
+        angle: 90 // Ângulo em que os confetes serão lançados
+    };
+
+    // Joga confetes da esquerda pra direita
+    confetti(params);
+
+    // Joga confetes da direita para a esquerda
+    params.origin.x = 1;
+    params.angle = 90;
+    confetti(params);
+});
+
+// Adiciona o botão ao elemento pai
+divNomes.appendChild(btn_confetes)
 }
