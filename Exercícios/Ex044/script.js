@@ -223,6 +223,7 @@ renderDia(jogosDia1); // Renderiza o dia 1 inicialmente
 // Resultados dos Jogos
 let diaAtual = 1;
 let jogosResultados = []
+let numeroJogo = 1
 
 function mostrarResultados(dia) {
     dia.forEach((jogo, index) => {
@@ -241,12 +242,38 @@ function mostrarResultados(dia) {
             jogo.equipeA.derrota++;
             jogo.equipeB.pontos += 3;
         } else {
-            jogo.resultado = { empate: true, golsA: time1Gols, golsB: time2Gols };
-            jogo.equipeA.empate++;
-            jogo.equipeB.empate++;
-            jogo.equipeA.pontos++;
-            jogo.equipeB.pontos++;
+            if (diaAtual >= 4) {
+                // Simular disputa de pênaltis
+                var time1Penaltis = Math.floor(Math.random() * 6); // Aleatório entre 0 e 5
+                var time2Penaltis = Math.floor(Math.random() * 6); // Aleatório entre 0 e 5
+
+                while (time1Penaltis === time2Penaltis) {
+                    time1Penaltis = Math.floor(Math.random() * 6);
+                    time2Penaltis = Math.floor(Math.random() * 6);
+                }
+
+                if (time1Penaltis > time2Penaltis) {
+                    jogo.resultado = { vencedor: jogo.equipeA, perdedor: jogo.equipeB, golsA: time1Gols, golsB: time2Gols, penaltis: `${time1Penaltis} - ${time2Penaltis}` };
+                    jogo.equipeA.vitoria++;
+                    jogo.equipeB.derrota++;
+                    jogo.equipeA.pontos += 3;
+                    alert(`Jogo ${numeroJogo}: ${jogo.equipeA.pais} venceu ${jogo.equipeB.pais} nos pênaltis (${time1Penaltis} - ${time2Penaltis})`);
+                } else {
+                    jogo.resultado = { vencedor: jogo.equipeB, perdedor: jogo.equipeA, golsA: time2Gols, golsB: time1Gols, penaltis: `${time2Penaltis} - ${time1Penaltis}` };
+                    jogo.equipeB.vitoria++;
+                    jogo.equipeA.derrota++;
+                    jogo.equipeB.pontos += 3;
+                    alert(`Jogo ${numeroJogo}: ${jogo.equipeB.pais} venceu ${jogo.equipeA.pais} nos pênaltis (${time2Penaltis} - ${time1Penaltis})`);
+                }
+            } else {
+                jogo.resultado = { empate: true, golsA: time1Gols, golsB: time2Gols };
+                jogo.equipeA.empate++;
+                jogo.equipeB.empate++;
+                jogo.equipeA.pontos++;
+                jogo.equipeB.pontos++;
+            }
         }
+        numeroJogo++
     });
 
     updateTable();
@@ -269,9 +296,10 @@ function mostrarResultados(dia) {
     } else if (diaAtual === 6) {
         renderDia(definirPartidasDia6());
     } else if (diaAtual === 7) {
-        renderDiaFinal()
+        renderDiaFinal();
     }
 }
+
 
 function limparJogos() {
     const blocoPartidas = document.getElementById('p1');
