@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body { 
+    margin:0; 
+    font:normal 75% Arial, Helvetica, sans-serif; 
+} 
+
+canvas { 
+    display: block;
+}
+
+#particles-js {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #181717;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    background-position: 50% 50%;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#genius {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background-color: #282828;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    position: absolute;
+}
+
+#verde {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(58, 194, 58);
+    border-radius: 100% 0% 54% 46% / 100% 100% 0% 0% ;
+}
+
+#vermelho {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(199, 62, 62);
+    border-radius: 0% 100% 0% 100% / 100% 100% 0% 0%;
+}
+
+#amarelo {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(190, 205, 50);
+    border-radius: 100% 0% 0% 100% / 0% 100% 0% 100%;
+}
+
+#azul {
+    cursor: pointer;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(49, 82, 189);
+    border-radius: 100% 0% 100% 0% / 0% 0% 100% 100%;
+}
+
+#menu {
+    position: absolute;
+    width: 225px;
+    height: 225px;
+    background-color: white;
+    border-radius: 50%;
+    border: 15px solid #282828;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#start {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+}
