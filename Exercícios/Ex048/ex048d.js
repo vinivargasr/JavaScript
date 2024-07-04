@@ -15,9 +15,13 @@ const resultado = document.querySelector('.res')
 btn_add.addEventListener('click', ()=>{
     Pessoa.nome = document.querySelector('#f_nome').value
     Pessoa.idade = document.querySelector('#f_idade').value
-    
-    const divNova = document.createElement('div')
-    divNova.setAttribute('class', 'pessoa')
-    divNova.innerHTML = `Nome: ${Pessoa.getNome()}<br>Idade: ${Pessoa.getIdade()}`
-    resultado.appendChild(divNova)
+
+    if (Pessoa.nome != '' && Pessoa.idade != '') {
+        const divNova = document.createElement('div')
+        divNova.setAttribute('class', 'pessoa')
+        divNova.innerHTML = `Nome: ${Pessoa.getNome()}<br>Idade: ${Pessoa.getIdade()}`
+        resultado.appendChild(divNova)
+    } else {
+        alert('Preencha os campos acima')
+    }
 })
