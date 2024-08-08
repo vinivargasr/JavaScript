@@ -13,24 +13,24 @@
                 <input type="text" name="nome" id="inome">
             <label for="iportas">Portas:</label>
                 <input type="number" name="portas" id="iportas">
-            <label for="iblindagem">Blindagem:</label>
-                <input type="number" name="blindagem" id="iblindagem">
-            <label for="imunicao">Munição:</label>
-                <input type="number" name="municao" id="imunicao">
+            <label for="iblindagem" class="blinda">Blindagem:</label>
+                <input type="number" name="blindagem" id="iblindagem" class="blinda" disabled>
+            <label for="imunicao" class="muni">Munição:</label>
+                <input type="number" name="municao" id="imunicao" class="muni" disabled>
             <label for="itipo">Tipo:</label>
             <div id="btn_tipo">
                 <div id="botaoNormal">
                     <label for="botaoNormal">Normal</label>
-                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoNormal">
+                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoNormal_">
                 </div>
                 <div id="botaoMilitar">
                     <label for="botaoMilitar">Militar</label>
-                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoMilitar">
+                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoMilitar_">
                 </div>
             </div>
-            <button type="submit">Adicionar</button>
+            <button id="btn_addCarro" class="btn10">Adicionar</button>
         </div>
-        <div id="carros"></div>
+        <div id="carros" class="carro"></div>
     </main>
     <script src="script.js"></script>
 </body>

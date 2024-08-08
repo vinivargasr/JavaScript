@@ -67,6 +67,3 @@ console.log(`Velocidade: ${c2.vel}`)
 console.log(`Cor: ${c2.cor}`)
 console.log(`Blindagem: ${c2.blindagem}`)
 console.log(`Munição: ${c2.municao}`)
-
-
-// TEMPO D VD 11:37
