@@ -49,8 +49,10 @@ const gerenciarCarros = () => {
         p.innerHTML += `Nome: ${c.nome}`
         p.innerHTML += `<br>Portas: ${c.portas}`
         p.innerHTML += `<br>Cor: ${c.cor}`
-        p.innerHTML += `<br>Blindagem: ${c.blindagem}`
-        p.innerHTML += `<br>Munição: ${c.municao}`
+        if (c.blindagem !== undefined) {
+            p.innerHTML += `<br>Blindagem: ${c.blindagem}`
+            p.innerHTML += `<br>Munição: ${c.municao}`
+        }
         div.appendChild(p)
         carros.appendChild(div)
     })
@@ -60,11 +62,12 @@ var qntsBlocos = 0
 const maxBlocos = 16
 
 btn_addCarro.addEventListener('click', () => {
+    if (nomeCarro.value !== '' && portasCarro.value !== '') {
     if (qntsBlocos < maxBlocos) {
         if (botaoNormal_.checked) {
             const c = new Carro(nomeCarro.value, portasCarro.value);
             a_carros.push(c)
-        } else {
+        } else if (iblindagem.value !== '' && imunicao.value !== '') {
             const c = new Militar(nomeCarro.value, portasCarro.value, iblindagem.value, imunicao.value);
             a_carros.push(c)
         }
@@ -77,6 +80,7 @@ btn_addCarro.addEventListener('click', () => {
     } else {
         alert("Número máximo de carros atingido!");
     }
+}
 });
 
 class Carro {
@@ -85,7 +89,7 @@ class Carro {
         this.portas = portas
         this.ligado = false
         this.vel = 80
-        this.cor = undefined
+        this.cor = 'Preto'
     }
 
     ligar = function() {

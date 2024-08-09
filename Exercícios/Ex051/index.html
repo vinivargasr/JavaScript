@@ -9,26 +9,28 @@
 <body>
     <main>
         <div id="formulario">
-            <label for="inome">Nome:</label>
-                <input type="text" name="nome" id="inome">
-            <label for="iportas">Portas:</label>
-                <input type="number" name="portas" id="iportas">
-            <label for="iblindagem" class="blinda">Blindagem:</label>
-                <input type="number" name="blindagem" id="iblindagem" class="blinda" disabled>
-            <label for="imunicao" class="muni">Munição:</label>
-                <input type="number" name="municao" id="imunicao" class="muni" disabled>
-            <label for="itipo">Tipo:</label>
-            <div id="btn_tipo">
-                <div id="botaoNormal">
-                    <label for="botaoNormal">Normal</label>
-                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoNormal_">
+            <form action="formCarro">
+                <label for="inome">Nome:</label><br>
+                    <input required type="text" name="nome" id="inome" maxlength="15" placeholder="Nome do Veículo"><br>
+                <label for="iportas">Portas:</label><br>
+                    <input required type="number" name="portas" id="iportas" onKeyPress="if(this.value.length==2) return false" placeholder="Quantidade de Portas">
+                <label for="iblindagem" class="blinda">Blindagem:</label>
+                    <input required type="number" name="blindagem" id="iblindagem" class="blinda" onKeyPress="if(this.value.length==6) return false;" placeholder="Proteção do Veículo" disabled>
+                <label for="imunicao" class="muni">Munição:</label>
+                    <input required type="number" name="municao" id="imunicao" class="muni" onKeyPress="if(this.value.length==5) return false;" placeholder="Quantidade de Tiros" disabled>
+                <label for="itipo">Tipo:</label>
+                <div id="btn_tipo">
+                    <div id="botaoNormal">
+                        <label for="botaoNormal">Normal</label>
+                        <input style="cursor: pointer;" type="radio" name="tipo" id="botaoNormal_">
+                    </div>
+                    <div id="botaoMilitar">
+                        <label for="botaoMilitar">Militar</label>
+                        <input style="cursor: pointer;" type="radio" name="tipo" id="botaoMilitar_">
+                    </div>
                 </div>
-                <div id="botaoMilitar">
-                    <label for="botaoMilitar">Militar</label>
-                    <input style="cursor: pointer;" type="radio" name="tipo" id="botaoMilitar_">
-                </div>
-            </div>
-            <button id="btn_addCarro" class="btn10">Adicionar</button>
+                <button id="btn_addCarro" class="btn10">Adicionar</button>
+            </form>
         </div>
         <div id="carros" class="carro"></div>
     </main>
