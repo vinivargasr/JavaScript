@@ -33,6 +33,14 @@ input {
     margin: 10px 0px;
 }
 
+input[type='text']{
+    width: 180px;
+} 
+
+input[type='number']{
+    width: 180px;
+} 
+
 #btn_tipo {
     display: flex;
 }
@@ -61,7 +69,7 @@ input {
     transition-duration: 0.2s;
 }
 
-button {
+#formulario button {
     margin: 10px 10px 10px 30px;
     padding: 10px 20px;
     border-radius: 5px;
@@ -73,7 +81,7 @@ button {
     transition-duration: 0.5s;
 }
 
-button:hover {
+#formulario button:hover {
     background-color: white;
     color: #282828;
     transition-duration: 0.5s;
@@ -187,4 +195,32 @@ button:hover {
 .btn10:hover::after, .btn1O:hover::after{
   opacity:1;
   width: 120%;
+}
+
+.spanRemove {
+    margin-left: 158px;
+    position: absolute;
+    
+}
+
+.spanRemove button {
+    background-color: #d43f2e;
+    width: 40px;
+    height: 20px;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid #282828;
+    cursor: pointer;
+}
+
+.spanRemove button:hover {
+    background-color:  #C0392B;
+}
+
+.spanRemove button:active {
+    background-color: #a83224;
+}
+
+.spanRemove button: {
+    background-color: #3AB56E;
 }

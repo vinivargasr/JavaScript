@@ -37,6 +37,8 @@ verificarEstado();
 
 normal.addEventListener('change', verificarEstado)
 militar.addEventListener('change', verificarEstado)
+var numCarros = 0
+const maxBlocos = 16
 
 const gerenciarCarros = () => {
     carros.innerHTML = ''
@@ -44,8 +46,15 @@ const gerenciarCarros = () => {
         const div = document.createElement('div')
         const p = document.createElement('p')
         const pportas = document.createElement('p')
+        const span = document.createElement('span')
+        const btn_remove = document.createElement('button')
+
         p.setAttribute('class','nomeDcarro')
         div.setAttribute('class', 'carro')
+        span.setAttribute('class', 'spanRemove')
+        btn_remove.setAttribute('class', 'remove')
+
+        btn_remove.innerHTML = 'X'
         p.innerHTML += `Nome: ${c.nome}`
         p.innerHTML += `<br>Portas: ${c.portas}`
         p.innerHTML += `<br>Cor: ${c.cor}`
@@ -53,17 +62,30 @@ const gerenciarCarros = () => {
             p.innerHTML += `<br>Blindagem: ${c.blindagem}`
             p.innerHTML += `<br>Munição: ${c.municao}`
         }
+        
+        span.appendChild(btn_remove)
+        div.appendChild(span)
         div.appendChild(p)
         carros.appendChild(div)
+
+        btn_remove.addEventListener('click', () => {
+            carros.removeChild(div)
+
+            numCarros--
+        })
+
+        btn_remove.onmouseup = () => {
+            btn_remove.style.backgroundColor = '#3AB56E'
+        }
     })
 }
 
 var qntsBlocos = 0
-const maxBlocos = 16
+
 
 btn_addCarro.addEventListener('click', () => {
     if (nomeCarro.value !== '' && portasCarro.value !== '') {
-    if (qntsBlocos < maxBlocos) {
+    if (numCarros < maxBlocos) {
         if (botaoNormal_.checked) {
             const c = new Carro(nomeCarro.value, portasCarro.value);
             a_carros.push(c)
@@ -71,6 +93,7 @@ btn_addCarro.addEventListener('click', () => {
             const c = new Militar(nomeCarro.value, portasCarro.value, iblindagem.value, imunicao.value);
             a_carros.push(c)
         }
+        numCarros++
         gerenciarCarros();
         nomeCarro.value = ''
         portasCarro.value = ''
@@ -79,6 +102,7 @@ btn_addCarro.addEventListener('click', () => {
         qntsBlocos++
     } else {
         alert("Número máximo de carros atingido!");
+        btn_addCarro.removeEventListener()
     }
 }
 });

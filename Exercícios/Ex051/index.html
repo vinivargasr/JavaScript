@@ -13,11 +13,11 @@
                 <label for="inome">Nome:</label><br>
                     <input required type="text" name="nome" id="inome" maxlength="15" placeholder="Nome do Veículo"><br>
                 <label for="iportas">Portas:</label><br>
-                    <input required type="number" name="portas" id="iportas" onKeyPress="if(this.value.length==2) return false" placeholder="Quantidade de Portas">
+                    <input required type="number" name="portas" id="iportas" onKeyPress="if(this.value.length==2) return false" min="0" max="99" size="50" oninput="validity.valid||(value='');" placeholder="Quantidade de Portas">
                 <label for="iblindagem" class="blinda">Blindagem:</label>
-                    <input required type="number" name="blindagem" id="iblindagem" class="blinda" onKeyPress="if(this.value.length==6) return false;" placeholder="Proteção do Veículo" disabled>
+                    <input required type="number" name="blindagem" id="iblindagem" class="blinda" min="0" max="999" oninput="validity.valid||(value='');" onKeyPress="if(this.value.length==3) return false;" placeholder="Proteção do Veículo" disabled>
                 <label for="imunicao" class="muni">Munição:</label>
-                    <input required type="number" name="municao" id="imunicao" class="muni" onKeyPress="if(this.value.length==5) return false;" placeholder="Quantidade de Tiros" disabled>
+                    <input required type="number" name="municao" id="imunicao" class="muni" onKeyPress="if(this.value.length==4) return false;" oninput="validity.valid||(value='');" min="0" max="9999" placeholder="Quantidade de Tiros" disabled>
                 <label for="itipo">Tipo:</label>
                 <div id="btn_tipo">
                     <div id="botaoNormal">
