@@ -106,7 +106,9 @@ input[type='number']{
     background-color: #575555;
     width: 200px;
     height: 110px;
-    margin: 15px;
+    margin: 14px;
+    border: 1px solid #282828;
+    border-radius: 5px;
 }
 
 .nomeDcarro {

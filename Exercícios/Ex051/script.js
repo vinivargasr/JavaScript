@@ -42,7 +42,7 @@ const maxBlocos = 16
 
 const gerenciarCarros = () => {
     carros.innerHTML = ''
-    a_carros.map((c) => {
+    a_carros.map((c, index) => {
         const div = document.createElement('div')
         const p = document.createElement('p')
         const pportas = document.createElement('p')
@@ -51,6 +51,7 @@ const gerenciarCarros = () => {
 
         p.setAttribute('class','nomeDcarro')
         div.setAttribute('class', 'carro')
+        div.setAttribute('data-nome', c.nome)
         span.setAttribute('class', 'spanRemove')
         btn_remove.setAttribute('class', 'remove')
 
@@ -70,8 +71,13 @@ const gerenciarCarros = () => {
 
         btn_remove.addEventListener('click', () => {
             carros.removeChild(div)
-
+            a_carros.splice(index, 1)
             numCarros--
+            gerenciarCarros()
+
+            if (numCarros < maxBlocos) {
+                btn_addCarro.disabled = false;
+            }
         })
 
         btn_remove.onmouseup = () => {
@@ -89,9 +95,13 @@ btn_addCarro.addEventListener('click', () => {
         if (botaoNormal_.checked) {
             const c = new Carro(nomeCarro.value, portasCarro.value);
             a_carros.push(c)
-        } else if (iblindagem.value !== '' && imunicao.value !== '') {
-            const c = new Militar(nomeCarro.value, portasCarro.value, iblindagem.value, imunicao.value);
-            a_carros.push(c)
+        } else if (botaoMilitar_.checked) {
+            if (iblindagem.value !== '' && imunicao.value !== '') {
+                const c = new Militar(nomeCarro.value, portasCarro.value, iblindagem.value, imunicao.value);
+                a_carros.push(c)
+            } else {
+                return
+            }
         }
         numCarros++
         gerenciarCarros();
@@ -102,10 +112,10 @@ btn_addCarro.addEventListener('click', () => {
         qntsBlocos++
     } else {
         alert("Número máximo de carros atingido!");
-        btn_addCarro.removeEventListener()
+        btn_addCarro.disabled = true
     }
 }
-});
+})
 
 class Carro {
     constructor(nome, portas) {
