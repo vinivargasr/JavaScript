@@ -222,7 +222,3 @@ input[type='number']{
 .spanRemove button:active {
     background-color: #a83224;
 }
-
-.spanRemove button: {
-    background-color: #3AB56E;
-}
