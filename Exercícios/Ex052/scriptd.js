@@ -1,5 +1,14 @@
-class Carro {
+class CarroPadrao {
+    constructor() {
+        this.rodas = 4
+        this.portas = 4
+        this.ligado = false
+    }
+}
+
+class Carro extends CarroPadrao{
     constructor(tipo, estagioTurbo) {
+        super()
         this.turbo = new Turbo(estagioTurbo)
         if (tipo == 1) {
             this.velMax = 120
@@ -17,6 +26,9 @@ class Carro {
         console.log(`${this.nome}`)
         console.log(`${this.velMax}`)
         console.log(`${this.turbo}`)
+        console.log(`${this.rodas = 4}`)
+        console.log(`${this.portas = 4}`)
+        console.log(`${this.ligado = false}`)
         console.log('-----------------')
     }
 }
@@ -38,7 +50,7 @@ class Turbo {
 class CarroEspecial extends Carro {
     constructor(estagioTurbo) {
         super(4, estagioTurbo)
-        this.tipoInfo = 0
+        this.tipoInfo = 1
         this.velMax = 300 + this.turbo.pot
         this.nome = 'Especial'
     }
@@ -57,7 +69,6 @@ class CarroEspecial extends Carro {
 const c1 = new Carro(1, 0)
 const c2 = new Carro(1, 1)
 const c3 = new CarroEspecial(3)
-
 
 c1.info()
 c2.info()
