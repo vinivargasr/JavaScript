@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALC</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .calc {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin-top: -100px;
+        }
+
+        .divnome {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        .divdisplay {
+            background-color: rgb(228, 240, 248);
+            border: 1px solid black;
+            border-radius: 10px;
+            font-size: 30px;
+            height: 50px;
+            width: 215px;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+            margin-bottom: 3px;
+        }
+
+        #display {
+            margin-right: 5px;
+        }
+
+        .divteclas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 250px;
+        }
+
+        .tecla {
+            width: 50px;
+            height: 50px;
+            margin: 3px;
+            font-size: 30px;
+            background-color: rgb(228, 240, 248);
+            border: 1px solid black;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .tecla:hover {
+            background-color: rgb(173, 201, 219);
+        }
+
+        .teclaop {
+            background-color: rgb(156, 252, 252) !important;
+            border: 1px solid black !important;
+        }
+
+        .teclaop:hover {
+            background-color: rgb(140, 212, 212) !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="calc" class="calc">
+        <div id="divnome" class="divnome">
+            <p>Caculadora TESTE</p>
+        </div>
+        <div id="divdisplay" class="divdisplay">
+            <p id="display">0</p>
+        </div>
+        <div id="divteclas" class="divteclas">
+            <button id="t7" class="tecla">7</button>
+            <button id="t8" class="tecla">8</button>
+            <button id="t9" class="tecla">9</button>
+            <button id="t+" class="tecla teclaop">+</button>
+            <button id="t4" class="tecla">4</button>
+            <button id="t5" class="tecla">5</button>
+            <button id="t6" class="tecla">6</button>
+            <button id="t-" class="tecla teclaop">-</button>
+            <button id="t1" class="tecla">1</button>
+            <button id="t2" class="tecla">2</button>
+            <button id="t3" class="tecla">3</button>
+            <button id="tx" class="tecla teclaop">x</button>
+            <button id="t0" class="tecla">0</button>
+            <button id="tseparador" class="tecla teclaop">,</button>
+            <button id="tigual" class="tecla teclaop">=</button>
+            <button id="td" class="tecla teclaop">÷</button>
+        </div>
+    </div>
+</body>
+</html>
