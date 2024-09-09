@@ -1,27 +1,35 @@
 const numero = document.getElementById('numero')
+const btnPromessa = document.getElementById('btnPromise')
 
-let promise = new Promise((resOk, resNaoOK) => {
-    let resultado = true
-    let tempo = 3000
+numero.innerHTML = 'Esperando'
 
-    setTimeout(() => {
-        if (resultado) {
-            resOk('Deu boa')
-        } else {
-            resNaoOK('Deu ruim')
-        }
-    }, tempo)
+btnPromessa.addEventListener('click',(evt) => {
+    numero.innerHTML = 'Processando...'
+    promessa()
+        .then((retorno) => {
+            numero.innerHTML = retorno
+            numero.classList.remove('erro')
+            numero.classList.add('ok')
+        })
+        .catch((retorno) => {
+            numero.innerHTML = retorno
+            numero.classList.remove('ok')
+            numero.classList.add('erro')
+        })
 })
 
-promise.then((retorno) => {
-    numero.innerHTML = retorno
-    numero.classList.remove('erro')
-    numero.classList.add('ok')
-})
-promise.catch((retorno) => {
-    numero.innerHTML = retorno
-    numero.classList.remove('ok')
-    numero.classList.add('erro')
-})
+const promessa = () => {
+    let p = new Promise((resOk, resNaoOK) => {
+        let resultado = true
+        let tempo = 3000
 
-numero.innerHTML = 'Processando...'
+        setTimeout(() => {
+            if (resultado) {
+                resOk('Deu boa')
+            } else {
+                resNaoOK('Deu ruim')
+            }
+        }, tempo)
+    })
+    return p
+}
