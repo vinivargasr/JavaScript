@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        html {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            height: 100vh;
+        }
+
+        #timer {
+            border: 1px solid black;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #divData {
+            font-size: 12px;
+        }
+
+        #divRelogio {
+            background-color: rgb(161, 161, 161);
+            font-size: 18px;
+            border: 1px solid black;
+            padding: 10px 50px;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 60px;
+            height: 25px;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #btnAtivar {
+            background-color: lightgreen;
+            margin-right: 5px;
+        }
+
+        #btnAtivar:hover {
+            background-color: rgb(131, 216, 131);
+        }
+
+        #btnParar {
+            background-color: rgb(241, 140, 140);
+            margin-left: 5px;
+        }
+
+        #btnParar:hover {
+            background-color: rgb(221, 117, 117);
+        }
+
+        #defAlarme {
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        #horaAlarme {
+
+        }
+
+        #tmpAlarme {
+            margin-top: 5px;
+            width: 50px;         
+        }
+
+        #meio {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alarme {
+            transition-duration: 2s;
+            background-color: black;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="timer" class="timer">
+        <div id="divData"></div>
+        <div id="divRelogio" class="divRelogio">00:00:00</div>
+        <div id="defAlarme" class="defAlarme">
+            <label for="horaAlarme" id="horaAlarme">Hora do Alarme:</label><br/>
+            <label>Tempo do alarme: (segundos)</label>
+            <div id="meio">
+                <input type="number" id="tmpAlarme" value="0" min="0">
+            </div>
+        </div>
+        <div id="comandos" class="comandos">
+            <button id="btnAtivar">Ativar</button>
+            <button id="btnParar">Parar</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
