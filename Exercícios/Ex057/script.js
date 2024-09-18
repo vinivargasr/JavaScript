@@ -51,19 +51,28 @@ class Bola {
         const div = document.createElement('div')
         div.setAttribute('id', this.id)
         div.setAttribute('class', 'bola')
-        div.setAttribute('style',`left:${this.posicaoX}; top:${this.posicaoY}; width:${this.tamanho}; height:${this.tamanho}; background-color:rgb(${this.r},${this.g},${this.b})`)
+        div.setAttribute('style',`left:${this.posicaoX}px; top:${this.posicaoY}px; width:${this.tamanho}px; height:${this.tamanho}px; background-color:rgb(${this.r},${this.g},${this.b})`)
         this.palco.appendChild(div)
     }
 
     controleBordas = () => {
-
+        if (this.posicaoX + this.tamanho > larguraPalco) {
+            this.direcaoX = -1
+        } else if (this.posicaoX <= 0) {
+            this.direcaoX = 1
+        }
+        if (this.posicaoY + this.tamanho > alturaPalco) {
+            this.direcaoY = -1
+        } else if (this.posicaoY <= 0) {
+            this.direcaoY = 1
+        }    
     }
 
     controlar = () => {
-        controleBordas()
+        this.controleBordas()
         this.posicaoX += this.direcaoX * this.velx
         this.posicaoY += this.direcaoY * this.vely
-        this.eu.setAttribute('style',`left:${this.posicaoX}; top:${this.posicaoY}; width:${this.tamanho}; height:${this.tamanho}; background-color:rgb(${this.r},${this.g},${this.b})`)
+        this.eu.setAttribute('style',`left:${this.posicaoX}px; top:${this.posicaoY}px; width:${this.tamanho}px; height:${this.tamanho}px; background-color:rgb(${this.r},${this.g},${this.b})`)
         if ((this.posicaoX > larguraPalco) || (this.posicaoY > alturaPalco)) {
             this.remover()
         }
@@ -78,13 +87,12 @@ window.addEventListener('resize',(evt) => {
 btnAdd.addEventListener('click',(evt) => {
     const qtde = txtQuantidade.value
     for(let i = 0; i < qtde; i++) {
-        // const bola = new Bola()
-        // bolas.push(bola)
-        // palco.appendChild(bola)
-        // bola = undefined
+        bolas.push(new Bola(bolas, palco))
     }
 })
 
 btnRemover.addEventListener('click',(evt) => {
-    bolas.length = 0
+    bolas.map((b) => {
+        b.remover()
+    })
 })
