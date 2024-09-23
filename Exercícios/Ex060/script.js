@@ -11,6 +11,16 @@ const computador = {
     }
 }
 
+const c1 = Object.assign({}, computador)
+
+const o1 = {obj1: '1'}
+const o2 = {obj2: '2'}
+const o3 = {obj3: '3'}
+const o4 = Object.assign(o1, o2, o3)
+
+console.log(o4)
+
+
 const computadores = [
     {
         cpu: 'i9',
