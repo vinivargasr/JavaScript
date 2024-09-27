@@ -9,9 +9,9 @@ let contato = {
     },
     addContato: function(novoContato, destinoDOM) {
         const cont = {
-            nome: novoContato.value,
-            telefone: novoContato.value,
-            email: novoContato.value
+            nome: novoContato.nome,
+            telefone: novoContato.telefone,
+            email: novoContato.email
         }
         contatos.push(cont)
 
@@ -25,9 +25,26 @@ let contato = {
         const pEmail = document.createElement('p')
         pEmail.innerHTML = novoContato.email
 
+        const remove = document.createElement('button')
+        remove.innerHTML = 'x'
+        remove.setAttribute('class','remove')
+
+        const index = contatos.length - 1
+
+        remove.addEventListener('click', () => {
+            const index = contatos.findIndex(c => c.nome === novoContato.nome && c.telefone === novoContato.telefone && c.email === novoContato.email)
+    
+            if (index > -1) {
+                contatos.splice(index, 1)
+                div.remove()
+                console.log(this.getTodosContatos())
+            }
+        })
+
         div.appendChild(pNome)
         div.appendChild(pFone)
         div.appendChild(pEmail)
+        div.appendChild(remove)
         destinoDOM.appendChild(div)
     }
 
