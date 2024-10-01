@@ -25,4 +25,5 @@ console.log(nome.search(/vargas/i))
 console.log(nome.match(/v/ig))
 console.log(nome.replace(/vargas/ig, 'Testando'))
 console.log(nome.match(/[ri]/ig))
-console.log(nome.match(/[a-j]/ig))
+console.log(nome.match(/[a-z]/ig))
+console.log(nome.match(/\p{L}/gu)) // pega até o acentos
