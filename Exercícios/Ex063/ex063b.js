@@ -13,4 +13,8 @@ console.log(nome.search('Pinho'))
 console.log(nome.slice(6,11))
 console.log(nome.split(' '))
 console.log(nome.substring(6,11))
-console.log()
+console.log(nome.startsWith('B')) // Começa com, true ou false
+console.log(nome.endsWith('Campos')) // Termina com, true ou false
+console.log(nome.includes('teste')) // contém na string, true ou false
+console.log(nome.repeat(3)) // Repete a string, pela quantidade definida
+console.log(String.fromCodePoint(66))
