@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            transition-duration: 3s;
+        }
+
+        #paineldosBTN {
+            user-select: none;
+            background-color: lightgreen;
+            width: 350px;
+            border-bottom: 20px solid lightgreen;
+            border-radius: 0%;
+        }
+
+        button {
+            background-color: rgb(179, 224, 252);
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+            width: 80px;
+            height: 25px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(225, 238, 247);
+        }
+
+        #carro {
+            background-color: lightcoral;
+            width: 166px;
+            height: 100px;
+        }
+
+        #btnParar {
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="paineldosBTN">
+        <button id="btnEsquerda">←</button>
+        <button id="btnDireita">→</button>
+        <button id="btnParar">Parar</button>
+        <div id="carro" class="carro"></div>
+    </div>
+    
+    <script src="ex064.js"></script>
+</body>
+</html>
