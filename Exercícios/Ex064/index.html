@@ -9,13 +9,20 @@
             margin: 0px;
         }
 
+        body {
+            overflow: hidden;
+        }
+
         #paineldosBTN {
             user-select: none;
             border-radius: 0%;
+            display: flex;
+            height: 40px;
         }
 
         button {
-            background-color: rgb(179, 224, 252);
+            background-color: rgb(70, 70, 70);
+            color: white;
             border: 1px solid black;
             border-radius: 5px;
             margin: 10px;
@@ -23,20 +30,26 @@
             height: 25px;
             font-size: 18px;
             cursor: pointer;
+            transition-duration: 0.2s;
         }
 
         button:hover {
-            background-color: rgb(225, 238, 247);
+            background-color: rgb(139, 140, 141);
         }
 
         #carro {
-            background-color: lightcoral;
+            background-color: rgb(255, 255, 255);
             width: 166px;
-            height: 100px;
+            height: 130px;
         }
 
         #btnParar {
             font-size: 14px;
+        }
+
+        img {
+            width: 166px;
+            height: 130px;
         }
 
     </style>
@@ -45,11 +58,11 @@
     <div id="paineldosBTN">
         <button id="btnEsquerda">⭠</button>
         <button id="btnDireita">⭢</button>
-        <button id="btnDireita">⭡</button>
-        <button id="btnDireita">⭣</button>
+        <button id="btnCima">⭣</button>
+        <button id="btnBaixo">⭡</button>
         <button id="btnParar">Parar</button>
     </div>
-    <div id="carro" class="carro"></div>
+    <div id="carro" class="carro"><img src="dvdPreto.jpg" alt="logo"></div>
     
     <script src="ex064.js"></script>
 </body>
