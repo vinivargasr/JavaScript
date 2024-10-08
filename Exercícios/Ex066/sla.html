@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLA</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+            overflow: hidden;
+            font-size: 10px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #menu {
+            margin: 10px;
+            position: absolute;
+            background-color: rgba(57, 51, 129, 0.308);
+            border-radius: 5px;
+            width: 200px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            color: white;
+        }
+
+        input {
+            background-color: rgb(92, 86, 153);
+            border: 1px solid black;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #ilati {
+            width: 140px
+        }
+
+        #ilong {
+            width: 132.1px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <label for="ilati">Latitude:</label>
+        <input name="ilati" id="ilati">
+        <label for="ilong">Longitude:</label>
+        <input name="ilong" id="ilong">
+    </div>
+    <div id="idLati"></div>
+    <img src="mapaMundi.jpg" alt="mapaMundi">
+    
+    <script src="scriptc.js"></script>
+</body>
+</html>
