@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #iMsg {
+            width: 400px;
+            height: 50px;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .erro {
+            background-color: rgb(238, 70, 70);
+        }
+
+        .valido {
+            background-color: rgb(90, 238, 70);
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <label for="iNome">Nome:</label>
+        <input type="text" minlength="4" maxlength="8" id="iNome" required>
+        <label for="iNota">Nota:</label>
+        <input type="number" name="iNota" id="iNota" min="0" max="10" required>
+        <button id="btnValidar">Validar</button>
+        <p id="iMsg"></p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
