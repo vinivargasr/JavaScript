@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graficos com Chart.js</title>
+    <style>
+        #grafico1 {
+            width: 600px !important;
+            height: 300px !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="grafico1"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('grafico1');
+      
+        const labelsX = ['Felipe', 'Vargas', 'Thyago', 'Caetano', 'Andre']
+        const valores = [1, 9, 3, 2, 0]
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labelsX,
+            datasets: [{
+              label: 'CDs',
+              data: valores,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+        
+      </script>
+</body>
+</html>
