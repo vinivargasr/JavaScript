@@ -1,0 +1,4 @@
+{
+	"exemplo":"Texto exemplo 3.0",
+	"sla":"sla, oi"
+}
