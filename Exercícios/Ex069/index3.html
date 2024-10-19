@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #grafico1 {
+            width: 600px !important;
+            height: 300px !important;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="grafico1"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('grafico1');
+      
+        const labelsX = ['Disponibilidade', 'Qualidade', 'Performace']
+        const valores = [0, 0, 0]
+
+        const grafico = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labelsX,
+            datasets: [{
+              label: 'Teste',
+              data: valores,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        })
+
+        const endpoint = 'https://replit.com/@cfbcursos/cfbcursosaula128'
+
+        fetch(endpoint)
+        .then(res => res.json())
+        .then(res => {
+            console.log(res.disponibilidade)
+            console.log(res.qualidade)
+            console.log(res.performance)
+        })
+
+        .catch(erro => {
+            console.log(`Erro: ${erro}`)
+        })
+
+        const obterDados = () => {
+
+            let oee = {
+                disponibilidade: Math.round(Math.random() * 100),
+                qualidade: Math.round(Math.random() * 100),
+                performance: Math.round(Math.random() * 100)
+            }
+
+            valores[0] = oee.disponibilidade
+            valores[1] = oee.performance
+            valores[2] = oee.qualidade
+            grafico.update()
+        }
+
+        const tempo = setInterval(obterDados, 3000)
+
+      </script>
+</body>
+</html>
