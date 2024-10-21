@@ -1,6 +1,10 @@
 const timer = document.getElementById('timer')
+const btnIniciar = document.getElementById('btnIniciar')
+const btnParar = document.getElementById('btnParar')
+const btnZerar = document.getElementById('btnZerar')
 
-const tempoInicial = Date.now()
+let intervalo = null
+let tempoInicial = null
 
 const contador = () => {
     const tempoAtual = Date.now()
@@ -23,4 +27,17 @@ const converter = (segundos) => {
     return form
 }
 
-setInterval(contador, 1000)
+btnIniciar.addEventListener('click', () => {
+    tempoInicial = Date.now()
+    intervalo = setInterval(contador, 1000)
+})
+
+btnParar.addEventListener('click', () => {
+    clearInterval(intervalo)
+})
+
+btnZerar.addEventListener('click', () => {
+    tempoInicial = Date.now()
+    timer.innerHTML = '00:00:00'
+    clearInterval(intervalo)
+})
