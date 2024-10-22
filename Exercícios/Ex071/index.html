@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+        }
+
+        button {
+            position: absolute;
+            padding: 5px;
+            margin: 5px;
+            color: white;
+            background-color: rgb(97, 92, 92);
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(121, 118, 118);
+        }
+
+        .divCaixa {
+            background-color: rgba(94, 92, 92, 0.192);
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .divFilha {
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            width: 500px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .pDiv {
+            margin-top: -100px;
+        }
+
+        .btndivBem {
+            margin-right: 75px;
+            width: 50px;
+        }
+
+        .btndivMal {
+            margin-left: 75px;
+            width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="btnCaixa">Caixa de Mensagem</button>
+    <script src="script.js"></script>
+</body>
+</html>
