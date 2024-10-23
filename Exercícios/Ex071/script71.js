@@ -1,7 +1,10 @@
 const btnCaixa = document.getElementById('btnCaixa')
+const btnCaixa2 = document.getElementById('btnCaixa2')
+const btnCaixa3 = document.getElementById('btnCaixa3')
+
 const body = document.querySelector('body')
 
-btnCaixa.addEventListener('click', () => {
+const mensagem = (texto) => {
     const div = document.createElement('div')
     div.setAttribute('class', 'divCaixa')
     body.appendChild(div)
@@ -12,7 +15,7 @@ btnCaixa.addEventListener('click', () => {
 
     const pDiv = document.createElement('p')
     pDiv.setAttribute('class', 'pDiv')
-    pDiv.innerHTML = 'Como vc tá?'
+    pDiv.innerHTML = texto
     divFilha.appendChild(pDiv)
 
     const btndivBem = document.createElement('button')
@@ -34,4 +37,16 @@ btnCaixa.addEventListener('click', () => {
         div.style.display = 'none'
         alert(':/')
     })
+}
+
+btnCaixa.addEventListener('click', () => {
+    mensagem('Como vc tá?')
+})
+
+btnCaixa2.addEventListener('click', () => {
+    mensagem('Tá td bem?')
+})
+
+btnCaixa3.addEventListener('click', () => {
+    mensagem('Eai?')
 })
