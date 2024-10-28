@@ -1,8 +1,8 @@
 import {Login} from './login.js'
 
-fetch('https://vinivargasr.github.io/JavaScript/Exerc%C3%ADcios/Ex072/sla.js')
+fetch('http://localhost:3000/usuarios')
 .then(resp => resp.json())
-.then(json => console.log(json))
-
+// .then(dados => console.log(dados))
+// .catch(erro => console.log(erro))
 
 Login.login('123','321')
