@@ -4,8 +4,154 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            color: #FFD2CB;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        #fundoLogin {
+            background: rgb(10,38,2);
+            background: linear-gradient(180deg, rgb(7, 31, 1) 0%, rgba(0,0,0,1) 100%);
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #baseLogin {
+            background-color: #121212c0;
+            width: 500px;
+            height: 250px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #corpoLogin {
+            width: 450px;
+            height: 300px;
+            display: flex;
+        }
+
+        #elementosLogin {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+            margin-top: -15px;
+        }
+
+        .campoLogin {
+            font-size: 16px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        .botoesLogin {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 7px;
+        }
+
+        #blocoLogo {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -20px;
+        }
+
+        .logoLogin {
+            background-color: #EEEEEE;
+            height: 100px;
+            width: 100px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            transition-duration: 0.5s;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        img:hover {
+            width: 110px;
+            height: 110px;
+        }
+
+        button {
+            color: #FFD2CB;
+            background-color: #121212;
+            width: 80px;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin: 5px;
+            padding: 2px;
+            cursor: pointer;
+            transition-duration: 0.5s;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+
+        input {
+            background-color: #13121286;
+            border: 1px solid black;
+            padding: 2px;
+            width: 100%;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+    </style>
 </head>
 <body>
+    <div id="fundoLogin" class="fundoLogin">
+        <div id="baseLogin" class="baseLogin">
+            <div id="corpoLogin" class="corpoLogin">
+                <div id="elementosLogin" class="elementosLogin">
+                    <div class="campoLogin">
+                        <label for="iuser">Usuário:</label>
+                        <input type="text" name="iuser" id="iuser">
+                    </div>
+                    <div class="campoLogin">
+                        <label for="isenha">Senha:</label>
+                        <input type="password" name="isenha" id="isenha">
+                    </div>
+                    <div class="botoesLogin">
+                        <button id="btnLogin">Login</button>
+                        <button id="btnCancelar">Cancelar</button>
+                    </div>
+                </div>
+                <div id="blocoLogo">
+                    <div id="logoLogin" class="logoLogin">
+                        <a href="https://open.spotify.com/collection/tracks" target="_blank"><img src="logoSpotify.png"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="script.js" type="module"></script>
 </body>
 </html>
