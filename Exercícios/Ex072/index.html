@@ -13,17 +13,17 @@
         }
 
         #fundoLogin {
-            background: rgb(10,38,2);
-            background: linear-gradient(180deg, rgb(7, 31, 1) 0%, rgba(0,0,0,1) 100%);
             width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-image: url(fundoSpotify.png);
         }
 
         #baseLogin {
-            background-color: #121212c0;
+            background: rgba(10, 38, 2, 0.801);
+            background: linear-gradient(180deg, rgba(7, 31, 1, 0.877) 0%, rgba(0, 0, 0, 0.897) 100%);
             width: 500px;
             height: 250px;
             border-radius: 10px;
@@ -84,7 +84,7 @@
             justify-content: center;
         }
 
-        img {
+        .logoLogin img {
             width: 100px;
             height: 100px;
             transition-duration: 0.5s;
@@ -92,7 +92,7 @@
             margin-top: 5px;
         }
 
-        img:hover {
+        .logoLogin img:hover {
             width: 110px;
             height: 110px;
         }
@@ -153,5 +153,49 @@
         </div>
     </div>
     <script src="script.js" type="module"></script>
+    <script>
+        const fundoLogin = document.getElementById('fundoLogin')
+        
+        const montanhaInicial = fundoLogin.style.backgroundImage = "url('fundoSpotify.png')"
+        const praia = fundoLogin.style.backgroundImage = "url('fundoSpotifyPraia.png')"
+        const montanha = fundoLogin.style.backgroundImage = "url('fundoSpotifyMontanha.png')"
+        const cidade = fundoLogin.style.backgroundImage = "url('fundoSpotifyCidade.png')"
+        const floresta = fundoLogin.style.backgroundImage = "url('fundoSpotifyFloresta.png')"
+
+    if (minutos++) {
+        const numAleatorio = Math.floor(Math.random() * 5) + 1;
+
+        // Defina as variáveis com as URLs
+        const montanhaInicial = "url('fundoSpotify.png')";
+        const praia = "url('fundoSpotifyPraia.png')";
+        const montanha = "url('fundoSpotifyMontanha.png')";
+        const cidade = "url('fundoSpotifyCidade.png')";
+        const floresta = "url('fundoSpotifyFloresta.png')";
+
+        // Use o switch para definir o backgroundImage
+        switch (numAleatorio) {
+            case 1:
+                fundoLogin.style.backgroundImage = praia;
+                break;
+            case 2:
+                fundoLogin.style.backgroundImage = montanhaInicial;
+                break;
+            case 3:
+                fundoLogin.style.backgroundImage = floresta;
+                break;
+            case 4:
+                fundoLogin.style.backgroundImage = cidade;
+                break;
+            case 5:
+                fundoLogin.style.backgroundImage = montanha;
+                break;
+            default:
+                console.log("Nenhuma opção válida selecionada.");
+        }
+    }
+
+        setInterval(atualizarFundo, 5000)
+
+    </script>
 </body>
 </html>
