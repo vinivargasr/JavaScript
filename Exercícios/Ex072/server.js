@@ -4,7 +4,7 @@ const app = express()
 
 app.use(cors())
 
-app.get('/usuarios', (req, res) => {
+app.get('/usuarios/teste', (req, res) => {
     res.json([{
         nome: 'Bruno',
         acesso: 10
