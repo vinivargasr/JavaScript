@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataGridView</title>
+    <style>
+        * {
+            border: none;
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            margin: 5px;
+        }
+        
+        th {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 2px;
+            text-align: center;
+        }
+
+        tr {
+            transition-duration: 0.3s;
+        }
+
+        tr:nth-child(odd) {
+            background-color: rgb(221, 215, 215);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgb(255, 255, 255);
+        }
+        
+        tr:hover {
+            background-color: darkslategray;
+            color: white;
+        }
+
+        .right {
+            border-right: 1px solid black;
+        }
+
+        .icons {
+            width: 19x;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 2px;
+            background-color: rgb(230, 217, 211);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .icons:hover {
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <table id="ProdutosDGV" class="dgv">
+        <tr>
+            <th id="TituosDGV" class="dgvTitulos">ID</th>
+            <th id="TituosDGV" class="dgvTitulos">Produto</th>
+            <th id="TituosDGV" class="dgvTitulos">Marca</th>
+            <th id="TituosDGV" class="dgvTitulos">Modelo</th>
+            <th id="TituosDGV" class="dgvTitulos right">Funções</th>
+        </tr>
+        <div id="DadosDGV"></div>
+    </table>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
