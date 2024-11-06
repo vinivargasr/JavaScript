@@ -40,6 +40,19 @@ const datagridview = (configDGV) => {
             const iconZoom = document.createElement('img')
             iconZoom.setAttribute('class', 'icons')
             iconZoom.setAttribute('src', 'zoomIcon.svg')
+            iconZoom.addEventListener('click', (evt) => {
+                document.getElementById('janelaVisualizar').classList.remove('ocultar')
+                const id = evt.target.parentNode.parentNode.firstChild.innerHTML
+                const endpoint = `http://localhost:1880/produtos/${id}`
+                fetch(endpoint)
+                .then(res => res.json())
+                .then(res => {
+                    document.getElementById('iid').value = res[0].n_id_produto
+                    document.getElementById('iproduto').value = res[0].s_nome_produto
+                    document.getElementById('imarca').value = res[0].s_marca_produto
+                    document.getElementById('imodelo').value = res[0].s_modelo_produto
+                })
+            })
             td5.appendChild(iconZoom)
 
             const iconEdit = document.createElement('img')
@@ -69,3 +82,12 @@ const datagridview = (configDGV) => {
 }
 
 datagridview(configDGV)
+
+
+document.getElementById('btnOK').addEventListener('click', (evt) => {
+    document.getElementById('janelaVisualizar').classList.add('ocultar')
+    document.getElementById('iid').value = ''
+    document.getElementById('iproduto').value = ''
+    document.getElementById('imarca').value = ''
+    document.getElementById('imodelo').value = ''
+})

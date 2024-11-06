@@ -16,6 +16,7 @@
             width: 500px;
             border-collapse: collapse;
             margin: 5px;
+            position: absolute;
         }
         
         th {
@@ -67,6 +68,113 @@
             background-color: white;
         }
 
+        /* Caixa de visualização */
+
+        #janelaVisualizar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        #visualizar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            background-color: lightgrey;
+            padding: 20px;
+            border-radius: 5px;
+            flex-direction: column;
+        }
+
+        .campo {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            width: 500px;
+        }
+
+        .campo input {
+            padding: 5px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .rodape {
+            align-items: center;
+        }
+
+        .btn {
+            width: 120px;
+            height: 35px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .btn:before {
+            content: '';
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            position: absolute;
+            top: -2px;
+            left:-2px;
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(5px);
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            animation: glowing 20s linear infinite;
+            opacity: 0;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+        }
+
+        .btn:active {
+            color: #ffffff
+        }
+
+        .btn:active:after {
+            background: transparent;
+        }
+
+        .btn:hover:before {
+            opacity: 1;
+        }
+
+        .btn:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #111;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .ocultar {
+            display: none !important; 
+        }
+
     </style>
 </head>
 <body>
@@ -80,6 +188,29 @@
         </tr>
         <div id="DadosDGV"></div>
     </table>
+    <div id="janelaVisualizar" class="janelaVisualizar ocultar">
+        <div id="visualizar" class="visualizar">
+            <div class="campo">
+                <label for="iid">Id</label>
+                <input type="text" name="iid" id="iid" readonly>
+            </div>
+            <div class="campo">
+                <label for="iproduto">Produto</label>
+                <input type="text" name="iproduto" id="iproduto" readonly>
+            </div>
+            <div class="campo">
+                <label for="imarca">Marca</label>
+                <input type="text" name="imarca" id="imarca" readonly>
+            </div>
+            <div class="campo">
+                <label for="imodelo">Modelo</label>
+                <input type="text" name="imodelo" id="imodelo" readonly>
+            </div>
+            <div id="campo" class="campo rodape">
+                <button id="btnOK" class="btn">OK</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js" type="module"></script>
 </body>
 </html>
