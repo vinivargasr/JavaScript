@@ -70,7 +70,7 @@
 
         /* Caixa de visualização */
 
-        #janelaVisualizar {
+        .janelaVisualizar {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -175,6 +175,18 @@
             display: none !important; 
         }
 
+        .rodapeEditar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+
+        .btnEditar {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -211,6 +223,32 @@
             </div>
         </div>
     </div>
+
+    <div id="janelaEditar" class="janelaVisualizar ocultar">
+        <div id="visualizar" class="visualizar">
+            <div class="campo">
+                <label for="iid">Id</label>
+                <input type="text" name="iideditar" id="iideditar" readonly>
+            </div>
+            <div class="campo">
+                <label for="iproduto">Produto</label>
+                <input type="text" name="iprodutoeditar" id="iprodutoeditar">
+            </div>
+            <div class="campo">
+                <label for="imarca">Marca</label>
+                <input type="text" name="imarcaeditar" id="imarcaeditar">
+            </div>
+            <div class="campo">
+                <label for="imodelo">Modelo</label>
+                <input type="text" name="imodeloeditar" id="imodeloeditar">
+            </div>
+            <div id="campo" class="campo rodapeEditar">
+                <button id="btnGravar" class="btn btnEditar">Gravar</button>
+                <button id="btnCancelar" class="btn btnEditar">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js" type="module"></script>
 </body>
 </html>

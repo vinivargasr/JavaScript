@@ -5,7 +5,7 @@ const configDGV = {
 
 const datagridview = (configDGV) => {
     const DadosDGV = document.getElementById('DadosDGV')
-    DadosDGV.innerHTML = ''
+    DadosDGV.innerHTML = ""
     fetch(configDGV.endpoint)
     .then(res => res.json())
     .then(res => {
@@ -58,6 +58,19 @@ const datagridview = (configDGV) => {
             const iconEdit = document.createElement('img')
             iconEdit.setAttribute('class', 'icons')
             iconEdit.setAttribute('src', 'editIcon.svg')
+            iconEdit.addEventListener('click', (evt) => {
+                document.getElementById('janelaEditar').classList.remove('ocultar')
+                const id = evt.target.parentNode.parentNode.firstChild.innerHTML
+                const endpoint = `http://localhost:1880/produtos/${id}`
+                fetch(endpoint)
+                .then(res => res.json())
+                .then(res => {
+                    document.getElementById('iideditar').value = res[0].n_id_produto
+                    document.getElementById('iprodutoeditar').value = res[0].s_nome_produto
+                    document.getElementById('imarcaeditar').value = res[0].s_marca_produto
+                    document.getElementById('imodeloeditar').value = res[0].s_modelo_produto
+                })
+            })
             td5.appendChild(iconEdit)
 
             const iconDelete = document.createElement('img')
@@ -90,4 +103,26 @@ document.getElementById('btnOK').addEventListener('click', (evt) => {
     document.getElementById('iproduto').value = ''
     document.getElementById('imarca').value = ''
     document.getElementById('imodelo').value = ''
+})
+
+document.getElementById('btnGravar').addEventListener('click', (evt) => {
+    const id = document.getElementById('iideditar').value
+    const produto = document.getElementById('iprodutoeditar').value
+    const marca = document.getElementById('imarcaeditar').value
+    const modelo = document.getElementById('imodeloeditar').value
+    const endpoint = `http://localhost:1880/updateproduto/${id}/${produto}/${marca}/${modelo}`
+    fetch(endpoint)
+    .then(res => {
+        if (res.status == 200) {
+            document.getElementById('janelaEditar').classList.add('ocultar')
+            datagridview(configDGV)
+        } else {
+            alert('Erro ao atualizar')
+        }
+    })
+    
+})
+
+document.getElementById('btnCancelar').addEventListener('click', (evt) => {
+    document.getElementById('janelaEditar').classList.add('ocultar')
 })
